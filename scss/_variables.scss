@@ -1,0 +1,22 @@
+// GOOGLE FONTS LOCAL IMPORT
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Cairo&family=Montserrat&display=swap');
+
+$font-cairo:'Cairo', sans-serif;
+$font-arvo:'Arvo',serif;
+$font-mont:'Montserrat',sans-serif;
+$default-font-size:1.6rem;
+
+//COLOR
+$primary: rgb(9, 138, 170);
+$primary-light:rgb(13, 160, 197);
+$primary-dark:rgb(10, 111, 136);
+
+$box-shadow:rgba(0,0,0,.3);
+$black:rgb(0,0,0);
+$white:rgb(255, 255, 255);
+
+//GRID 
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 6rem;

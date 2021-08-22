@@ -1,0 +1,68 @@
+@import '../../scss/variables';
+
+.header {
+  background-color: $white;
+  padding: 4rem;
+  font-size: 1.9rem;
+  font-family: $font-cairo;
+  text-indent: 4rem;
+}
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+  & button {
+    font-size: 1.8rem;
+    font-family: $font-mont;
+    font-weight: 800;
+    padding: 1.5rem 3rem;
+    cursor: pointer;
+    background-color: $primary;
+    color: $white;
+    border: none;
+    box-shadow: -0.1rem 0.4rem 1.7rem 0.2rem rgba(0, 0, 0, 0.75);
+    margin: 0rem 5rem;
+    &:disabled {
+      background-color: rgba(9, 138, 170, 0.541);
+      box-shadow: none;
+      border: 0.1rem solid $primary-dark;
+    }
+  }
+}
+.cardContainer {
+  background-color: $white;
+  padding: 5rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+.card {
+  background: cornflowerblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: 0.1rem solid $black;
+  margin: 1rem;
+  cursor: pointer;
+  box-shadow: -0.1rem 0.4rem 1.7rem 0.2rem rgba(0, 0, 0, 0.75);
+
+  & h2 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-family: $font-mont;
+    text-align: center;
+  }
+}
+.cardImg {
+  height: 22rem;
+  width: 100%;
+  position: relative;
+  border: 0.1rem solid $black;
+}
+.img {
+  object-fit: cover;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}

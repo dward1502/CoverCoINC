@@ -1,0 +1,97 @@
+@import 'variables';
+@import 'mixins';
+
+.arvo {
+  font-family: $font-arvo;
+  color: $primary;
+  font-size: 5rem;
+}
+.cairo {
+  font-family: $font-cairo;
+  color: $primary-dark;
+  font-size: 5rem;
+}
+.mont {
+  font-family: $font-mont;
+  color: $primary-light;
+  font-size: 5rem;
+}
+.content {
+  min-height: 100vh;
+  background-image: url('/retina_wood_@2X.png');
+  padding: 13rem 20rem;
+
+  @include respond(tab-port) {
+    padding: 13rem 10rem;
+  }
+  @include respond(tab-small) {
+    padding: 13rem 5rem;
+  }
+  @include respond(phone-md) {
+    padding: 13rem 0.5rem 0rem 0.5rem;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 2rem;
+  margin: 8rem 0;
+}
+.About {
+  background: linear-gradient(90deg, $black 0%, $primary 100%);
+  box-shadow: -0.8rem 1rem 1.1rem 0.4rem rgba(0, 0, 0, 0.75);
+  height: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & a {
+    text-decoration: none;
+    font-family: $font-mont;
+    font-size: 2rem;
+    font-weight: 800;
+    color: $white;
+    cursor: pointer;
+  }
+  @include respond(phone) {
+    height: 18rem;
+  }
+}
+.Customize {
+  background: linear-gradient(90deg, $black 0%, $primary 100%);
+  box-shadow: -0.8rem 1rem 1.1rem 0.4rem rgba(0, 0, 0, 0.75);
+  height: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & a {
+    text-decoration: none;
+    font-family: $font-mont;
+    font-size: 2rem;
+    font-weight: 800;
+    color: $white;
+    cursor: pointer;
+  }
+  @include respond(phone) {
+    height: 18rem;
+  }
+}
+.Industries {
+  background: linear-gradient(90deg, $black 0%, $primary 100%);
+  box-shadow: -0.8rem 1rem 1.1rem 0.4rem rgba(0, 0, 0, 0.75);
+  height: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & a {
+    text-decoration: none;
+    font-family: $font-mont;
+    font-size: 2rem;
+    font-weight: 800;
+    color: $white;
+    cursor: pointer;
+  }
+  @include respond(phone) {
+    height: 18rem;
+  }
+}

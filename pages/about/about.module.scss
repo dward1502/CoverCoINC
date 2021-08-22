@@ -1,0 +1,171 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+.quote {
+  text-align: center;
+  font-family: $font-mont;
+  padding: 10rem 0rem 5rem;
+  background-color: $white;
+  & p {
+    text-transform: capitalize;
+    font-size: 2.1rem;
+    font-weight: 700;
+    font-family: $font-mont;
+  }
+}
+.info {
+  padding: 5rem 10rem 10rem 10rem;
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  & p {
+    text-indent: 4rem;
+    margin: 0.4rem 0rem;
+    font-size: 2.2rem;
+    font-style: $font-cairo;
+  }
+  @include respond(phone-small) {
+    padding: 5rem 0rem 0rem 5rem;
+  }
+}
+.usaImg {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+}
+.traits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 4rem;
+  margin: 6rem 0;
+}
+.card {
+  background: $white;
+  box-shadow: -0.1rem 0.4rem 1.7rem 0.2rem rgba(0, 0, 0, 0.75);
+  height: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  & h1 {
+    text-transform: capitalize;
+    font-size: 3rem;
+    font-weight: 800;
+    color: $black;
+    font-family: $font-mont;
+    margin-bottom: 2rem;
+  }
+  & p {
+    font-family: $font-cairo;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+}
+.photos {
+  width: 100%;
+  height: 20rem;
+  display: flex;
+  margin-bottom: 15rem;
+  box-shadow: -0.1rem 0.4rem 1.7rem 0.2rem rgba(0, 0, 0, 0.75);
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 20rem;
+  margin-bottom: 6rem;
+}
+.team {
+  margin: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  text-align: center;
+  box-shadow: -0.1rem 0.4rem 1.7rem 0.2rem rgba(0, 0, 0, 0.75);
+
+  & h1 {
+    font-size: 3rem;
+    font-family: $font-arvo;
+    margin: 2rem 0;
+  }
+}
+.teamContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+}
+.box {
+  height: 40rem;
+  width: fit-content;
+  margin: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.imgContainer {
+  border: 1px solid $black;
+  border-radius: 50%;
+  height: 20rem;
+  width: 20rem;
+  position: relative;
+  margin-left: 4rem;
+  overflow: hidden;
+}
+.img {
+  display: inline-block;
+  object-fit: cover;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+  z-index: 0;
+}
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  align-items: center;
+  padding: 6rem 2rem;
+}
+.name {
+  font-size: 2.4rem;
+  font-family: $font-cairo;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.title {
+  font-size: 1.8rem;
+  font-family: $font-cairo;
+  margin-bottom: 1rem;
+}
+.socialIcons {
+  display: flex;
+  padding-bottom: 1rem;
+  border-bottom: 0.2rem solid $black;
+  & a {
+    padding: 0rem 1rem;
+    color: $black;
+    font-size: 2rem;
+  }
+}
+.teamText {
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-family: $font-cairo;
+}
+.contactInfo {
+  border-top: 0.2rem solid $black;
+  padding-top: 1rem;
+}
+.contact {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  padding-top: 0.2rem;
+  font-size: 1.6rem;
+  font-family: $font-mont;
+  & a {
+    text-decoration: none;
+    color: $black;
+    & i {
+      margin-right: 1rem;
+    }
+  }
+}

@@ -1,0 +1,133 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.footer {
+  width: 100%;
+  height: 18rem;
+  background: linear-gradient(360deg, $primary-dark 0%, $primary-light 100%);
+  color: $white;
+  font-size: 1.5rem;
+  padding: 2rem 6rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  @include respond(tab-port) {
+    padding: 2rem 4rem;
+  }
+  @include respond(phone) {
+    padding: 1rem 2rem;
+  }
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  // flex-direction: column;
+}
+.logo {
+  height: 8rem;
+  width: 30rem;
+  position: relative;
+  @include respond(tab-port) {
+   width: 25rem;
+  }
+  @include respond(tab-small) {
+    width: 20rem;
+  }
+  @include respond(phone) {
+    width: 16rem;
+  }
+}
+.custom_img {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  & a {
+    text-decoration: none;
+    background: transparent;
+    color: white;
+    padding: 0.1rem 0rem;
+    font-family: $font-arvo;
+    font-size: 1.5rem;
+    @include respond(tab-port) {
+      font-size: 1.3rem;
+    }
+  }
+}
+.newsLetter {
+  display: flex;
+  flex-direction: column;
+  & p {
+    font-family: $font-arvo;
+    @include respond(tab-port) {
+      font-size: 1.3rem;
+    }
+  }
+  & div {
+    display: flex;
+  }
+  @include respond(phone-md) {
+    display: none;
+  }
+}
+.form {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  
+  & input {
+    padding: .6rem;
+    font-family: $font-mont;
+    letter-spacing: .05rem;
+    width: 20rem;
+    @include respond(tab-port) {
+      width: 10rem;
+    }
+  }
+}
+.button {
+  background: coral;
+  padding: 0 2rem;
+  font-size: 1.4rem;
+  color: $white;
+  font-family: $font-mont;
+  cursor: pointer;
+  border: none;
+}
+.socialIcons {
+  display: flex;
+  & a {
+    margin-top: 2rem;
+    padding: 0rem .5rem;
+    color: $white;
+    font-size: 3rem;
+    @include respond(tab-port) {
+      font-size: 2.2rem;
+    }
+  }
+}
+.copyright {
+  display: flex;
+  font-size: 1.2rem;
+  font-family: $font-cairo;
+  justify-content: center;
+  align-content: center;
+  margin-top: 2rem;
+  & a {
+    text-decoration: none;
+    background: transparent;
+    color: $white;
+    padding: 0rem 1rem;
+  }
+  & a:hover {
+    color: $primary-dark;
+    background: $white;
+    padding: .5rem;
+    transition: all .2s ease-out;
+  }
+}

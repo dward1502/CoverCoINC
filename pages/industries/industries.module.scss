@@ -1,0 +1,74 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.container {
+  background-color: $white;
+}
+.text {
+  padding: 2rem;
+  font-family: $font-cairo;
+  font-size: 1.5rem;
+  & p {
+    text-indent: 5rem;
+  }
+}
+.section1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  background-color: $primary-light;
+  padding: 3rem 0;
+}
+.section2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  background-color: $primary-dark;
+  padding: 3rem 0;
+}
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+  position: relative;
+}
+.img {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & h1 {
+    font-family: $font-mont;
+    font-size: 2.8rem;
+    color: $white;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+}
+.icons {
+  height: 6rem;
+  background-color: yellow;
+  width: 30rem;
+  margin-bottom: 2rem;
+}
+.btnLink {
+  text-decoration: none;
+  background-color: $white;
+  color: $primary-dark;
+  font-size: 1.8rem;
+  font-family: $font-arvo;
+  font-weight: 800;
+  padding: 1rem 3rem;
+  box-shadow: -2px 6px 9px 3px rgba(0, 0, 0, 0.75);
+  margin-bottom: 2rem;
+  &:hover {
+      color: $white;
+      background-color: $primary-light;
+      transition: all .2s ease-in-out;
+  }
+}

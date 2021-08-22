@@ -1,0 +1,40 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.img {
+  object-fit: cover;
+  width: 100% !important;
+  position: absolute !important;
+  height: 35rem;
+  z-index: 5;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  & p { 
+    font-size: 2rem;
+    font-family: $font-mont;
+    font-weight: 800;
+    color: $white;
+    text-transform: uppercase;
+  }
+  & button {
+    font-family: $font-arvo;
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    margin-top: 3rem;
+    background-color: $primary-dark;
+    color: $white;
+    border: .1rem solid $primary-dark;
+    border-radius: .5rem;
+    box-shadow: .1rem .3rem 1.1rem .6rem rgba(0,0,0,0.46);
+    cursor: pointer;
+    z-index: 20;
+    &:hover{
+      translate: 1.1;
+    }
+  }
+}

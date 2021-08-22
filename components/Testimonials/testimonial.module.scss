@@ -1,0 +1,33 @@
+@import '../../scss/variables';
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(37.5rem, 1fr));
+  grid-gap: 4rem;
+  margin: 2rem 0;
+}
+.card {
+  box-shadow: -0.8rem 1rem 1.1rem 0.4rem rgba(0, 0, 0, 0.75);
+  height: 40rem;
+  background-color: rgba(194, 194, 194, 0.705);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem;
+}
+.imgContainer {
+    width: 15rem;
+    height: 6rem;
+    position: relative;
+}
+.text{
+    font-size: 1.8rem;
+    font-family: $font-cairo;
+    margin: 2rem 0;
+}
+.author {
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: $font-arvo;
+}

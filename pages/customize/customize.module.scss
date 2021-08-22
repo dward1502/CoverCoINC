@@ -1,0 +1,232 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.container {
+  background: $white;
+}
+.header {
+  font-size: 2rem;
+  font-family: $font-mont;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.introText {
+  padding: 6rem 5rem 3rem 5rem;
+  font-family: $font-cairo;
+  font-size: 1.6rem;
+  text-indent: 4rem;
+}
+.varietyInfo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  background-color: $primary-light;
+}
+.varietyText {
+  padding: 4rem;
+  & p {
+    font-size: 1.6rem;
+    font-family: $font-arvo;
+    margin-bottom: 2.5rem;
+  }
+}
+.varietyImgs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.imgContainer {
+  height: 15rem;
+  width: 20rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.img {
+  object-fit: cover;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+.colorsContainer {
+  padding: 4rem;
+  & h2 {
+    font-family: $font-arvo;
+    font-size: 1.9rem;
+    text-align: center;
+  }
+}
+.colorSwatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  padding: 2rem 8rem 2rem 8rem;
+
+  & div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-cairo;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+}
+.colorBox {
+  width: 7.5rem;
+  height: 7.5rem;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  font-size: 1rem;
+  font-family: $font-arvo;
+  box-shadow: -2px 6px 9px 2px rgba(0, 0, 0, 0.75);
+}
+.red {
+  background-color: red;
+}
+.burgundy {
+  background-color: rgb(151, 5, 5);
+}
+.darkBlue {
+  background-color: rgb(9, 3, 94);
+}
+.teal {
+  background-color: rgb(0, 255, 234);
+}
+.grey {
+  background-color: rgb(126, 126, 126);
+}
+.darkGreen {
+  background-color: rgb(13, 99, 20);
+}
+.royalBlue {
+  background-color: rgb(18, 16, 133);
+}
+.black {
+  background-color: rgb(0, 0, 0);
+}
+.features {
+  background-color: $primary-light;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  padding: 4rem 4rem 8rem 4rem;
+  margin-bottom: 3rem;
+}
+.featuresBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & p {
+    font-size: 2rem;
+    font-family: $font-arvo;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  & button {
+    font-size: 2.5rem;
+    font-family: $font-mont;
+    font-weight: 700;
+    border: none;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    background-color: rgb(92, 10, 5);
+    color: $white;
+    box-shadow: -2px 6px 9px 2px rgba(0, 0, 0, 0.75);
+  }
+}
+.featuresInfo {
+  display: flex;
+  flex-direction: column;
+  // justify-content: flex-start;
+  align-items: center;
+  @include respond(tab-port) {
+    margin-top: 3rem;
+  }
+  & h1 {
+    font-size: 2rem;
+    font-family: $font-mont;
+    margin-bottom: 2rem;
+  }
+}
+.list {
+  font-family: $font-arvo;
+  font-size: 1.3rem;
+  list-style: none;
+  margin-left: 2rem;
+  & li {
+    margin: 0;
+    margin-bottom: 0.2rem;
+    padding-left: 1.5rem;
+    position: relative;
+    &:after {
+      content: '';
+      height: 0.4rem;
+      width: 0.4rem;
+      background: $white;
+      display: block;
+      position: absolute;
+      transform: rotate(45deg);
+      top: 0.8rem;
+      left: 0;
+    }
+  }
+}
+.colorInfoContainer {
+  margin-top: 6rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+}
+.colorInfo {
+  padding: 3rem;
+  & h1 {
+    font-size: 2rem;
+    font-family: $font-cairo;
+    margin-bottom: 2.5rem;
+  }
+  & p {
+    font-size: 1.6rem;
+    margin-left: 3rem;
+    font-family: $font-cairo;
+  }
+  & h3 {
+    margin: 3rem 0rem 2rem 0rem;
+    font-size: 1.8rem;
+    font-family: $font-mont;
+  }
+}
+.fabricImg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.fabricImgContainer {
+  width: 25rem;
+  height: 30rem;
+  position: relative;
+}
+.listFabric {
+  font-family: $font-arvo;
+  font-size: 1.4rem;
+  list-style: none;
+  margin-left: 2rem;
+  & li {
+    margin: 0;
+    margin-bottom: 0.2rem;
+    padding-left: 1.5rem;
+    position: relative;
+    &:after {
+      content: '';
+      height: 0.4rem;
+      width: 0.4rem;
+      background: $black;
+      display: block;
+      position: absolute;
+      transform: rotate(45deg);
+      top: 0.8rem;
+      left: 0;
+    }
+  }
+}

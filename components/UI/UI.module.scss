@@ -1,0 +1,149 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.searchBox {
+    width: 100%;
+    border-right: none;
+    border: .2rem solid red;
+    padding: .5rem;
+    height: 2rem;
+    border-radius: .5rem 0 0 .5rem;
+    outline: none;
+    color: #9dbfaf;
+    &:focus {
+        color: #00B4cc;
+    }
+}
+.searchButton {
+    width: 4rem;
+    height: 3.6rem;
+    border: .1rem solid red;
+    background: red;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 .5rem .5rem 0;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.Hero {
+  width: 100%;
+  height: 30rem;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  & h1 {
+      font-style: $font-arvo;
+      z-index: 10;
+      text-decoration: underline;
+      text-transform: uppercase;
+      color: $white;
+      font-size: 4rem;
+  }
+}
+.photo {
+  object-fit: cover;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+  z-index: 0;
+}
+
+
+.formBox {
+  border-right: 0.3rem solid $black;
+  padding: 3rem;
+  @include respond(phone) {
+      padding: 0;
+  }
+  & h1 {
+    font-family: $font-arvo;
+    margin-bottom: 2rem;
+  }
+}
+
+.inputRow {
+  display: flex;
+}
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  & label {
+    margin-bottom: 0.1rem;
+    font-family: $font-mont;
+    font-size: 1.1rem;
+    margin-left: 1rem;
+    font-weight: 600;
+  }
+  & input {
+    padding: 0.3rem 0.2rem;
+    font-family: $font-cairo;
+    border: 0.2rem solid $primary-dark;
+    border-radius: 1rem;
+    background: rgb(255, 255, 255);
+  }
+
+  & textarea {
+    resize: none;
+    font-family: $font-cairo;
+    border: 0.2rem solid $primary-dark;
+    border-radius: 1rem;
+    background: rgb(255, 255, 255);
+    width: 38rem;
+    @include respond(tab-land) {
+        width: 34rem;
+    }
+    @include respond(phone) {
+        width: 38rem;
+    }
+  }
+}
+.form {
+    @include respond(tab-land) {
+        padding: 2rem;
+    }
+    @include respond(phone) {
+        padding: 2rem;
+    }
+}
+.btnContainer {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 1rem;
+}
+.btn {
+  font-family: $font-mont;
+  font-size: 1.5rem;
+  padding: 1rem 3rem;
+  border: none;
+  background-color: $primary-light;
+  color: $white;
+  font-weight: 600;
+  border-radius: 0.5rem;
+// box-shadow: -1px 2px 12px 4px rgba(0,0,0,0.67);
+  &:disabled {
+    background-color: rgba(27, 184, 223, 0.541);
+    border: 0.2rem solid $black;
+    border-radius: 0.5rem;
+    // box-shadow: -1px 2px 12px 4px rgba(0,0,0,0.67);
+  }
+}
+
+.errorText {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  font-family: $font-mont;
+  color: red;
+}
+.invalid {
+  & label {
+    color: red;
+  }
+  & input {
+    background: salmon;
+  }
+}
