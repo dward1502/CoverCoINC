@@ -1,14 +1,24 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import Hero from '../../components/UI/Hero';
 import Image from 'next/image'
+import Modal from '../../components/UI/Modal/catalogModal'
 
 import styles from './specificCatalog.module.scss';
 
 const sports = () => {
+  const [modal,setModal] = useState()
+
+  const modalHandlerNull = () => {
+    setModal(null)
+  }
+  const modalHandler = () => {
+    setModal(true)
+  }
+
 
   return (
     <Fragment>
-      {/* {modal && (<Modal onConfirm={modalHandlerNull}/>)} */}
+      {modal && (<Modal onConfirm={modalHandlerNull}/>)}
       <Hero
         image='/slideshow1.jpg'
         alt='Sports catalog hero banner'
@@ -26,11 +36,11 @@ const sports = () => {
         </p>
         <div className={styles.btnContainer}>
           <button>Download PDF</button>
-          <button disabled>Send Order</button>
+          <button disabled>Send Request</button>
         </div>
       </section>
       <section className={styles.cardContainer}>
-        <div className={styles.card} >
+        <div className={styles.card} onClick={modalHandler}>
           <h2>Trash can cover</h2>
           <div className={styles.cardImg}>
             <Image

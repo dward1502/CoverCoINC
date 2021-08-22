@@ -1,6 +1,6 @@
  import React, { useEffect, useState, Fragment } from 'react'
-import  ReactDOM  from 'react-dom'
-// import styles from './modal.module.scss'
+import  ReactDOM  from 'react-dom';
+
 import Backdrop from './backdrop';
 import ModalOverlay from './modal'
 

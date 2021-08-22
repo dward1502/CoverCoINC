@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styles from './modal.module.scss';
 
 const Modal = (props) => {
   return (
-    <div>
-      <div className={styles.backdrop} onClick={props.onConfirm}>
+    <Fragment>
+      <div className={styles.backdrop} onClick={props.onConfirm} />
+      <div className={styles.modal}>
         <h1>this is the modal</h1>
       </div>
-    </div>
+    </Fragment>
   );
 };
 
