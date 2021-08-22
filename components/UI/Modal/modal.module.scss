@@ -1,3 +1,5 @@
+@import '../../../scss/variables';
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -14,6 +16,97 @@
   width: 80%;
   z-index: 100;
   overflow: hidden;
-  background-color: cornsilk;
+  background-color: $white;
   padding: 3rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.exitBtn {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  font-family: $font-cairo;
+  & h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  & h3 {
+    margin: 2rem 0;
+  }
+}
+.list {
+  margin-left: 3rem;
+}
+.materialTitle {
+  display: flex;
+   & p {
+     margin-left: 2rem;
+     font-size: 1.6rem;
+   }
+   & p:nth-child(2) {
+     font-family: $font-arvo;
+   }
+}
+.colorsCont {
+  display: flex;
+  justify-content: space-evenly;
+}
+.colors {
+  text-align: center;
+}
+.box {
+  height: 3rem;
+  width: 5rem;
+  background-color: black;
+}
+.btnContainer {
+  margin-top: 2rem;
+  & button {
+    padding: 1rem 4rem;
+    border: none;
+    border-radius: .5rem;
+    background-color: $primary;
+    color: $white;
+    font-size: 1.5rem;
+    font-family: $font-mont;
+    font-weight: 800;
+    cursor: pointer;
+  }
+}
+
+
+
+
+
+
+
+
+.images{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.imgContainer {
+  height: 20rem;
+  width: 20rem;
+  margin: 1rem;
+  position: relative;
+}
+.img {
+  object-fit: cover;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
 }

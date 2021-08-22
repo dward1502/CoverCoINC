@@ -1,24 +1,25 @@
 import React, { Fragment, useState } from 'react';
 import Hero from '../../components/UI/Hero';
-import Image from 'next/image'
-import Modal from '../../components/UI/Modal/catalogModal'
+import Image from 'next/image';
+import Modal from '../../components/UI/Modal/catalogModal';
 
 import styles from './specificCatalog.module.scss';
+import sportsData from '../../data/sportscatalog';
 
 const sports = () => {
-  const [modal,setModal] = useState()
+  const [modal, setModal] = useState();
 
   const modalHandlerNull = () => {
-    setModal(null)
-  }
+    setModal(null);
+  };
   const modalHandler = () => {
-    setModal(true)
-  }
-
+    setModal(true);
+  };
+  // console.log(JSON.stringify(sportsData));
 
   return (
     <Fragment>
-      {modal && (<Modal onConfirm={modalHandlerNull}/>)}
+      {modal && <Modal onConfirm={modalHandlerNull} />}
       <Hero
         image='/slideshow1.jpg'
         alt='Sports catalog hero banner'
@@ -40,105 +41,21 @@ const sports = () => {
         </div>
       </section>
       <section className={styles.cardContainer}>
-        <div className={styles.card} onClick={modalHandler}>
-          <h2>Trash can cover</h2>
-          <div className={styles.cardImg}>
-            <Image
-              src='/slideshow1.jpg'
-              alt='photo'
-              layout='fill'
-              className={styles.img}
-            />
-          </div>
-        </div>
-        <div className={styles.card}>
-          <h2>Trash can cover</h2>
-          <div className={styles.cardImg}>
-            <Image
-              src='/slideshow1.jpg'
-              alt='photo'
-              layout='fill'
-              className={styles.img}
-            />
-          </div>
-        </div>
-        <div className={styles.card}>
-          <h2>Trash can cover</h2>
-          <div className={styles.cardImg}>
-            <Image
-              src='/slideshow1.jpg'
-              alt='photo'
-              layout='fill'
-              className={styles.img}
-            />
-          </div>
-        </div>
-        <div className={styles.card}>
-          <h2>Trash can cover</h2>
-          <div className={styles.cardImg}>
-            <Image
-              src='/slideshow1.jpg'
-              alt='photo'
-              layout='fill'
-              className={styles.img}
-            />
-          </div>
-        </div>
-        <div className={styles.card}>
-          <h2>Trash can cover</h2>
-          <div className={styles.cardImg}>
-            <Image
-              src='/slideshow1.jpg'
-              alt='photo'
-              layout='fill'
-              className={styles.img}
-            />
-          </div>
-        </div>
-        <div className={styles.card}>
-          <h2>Trash can cover</h2>
-          <div className={styles.cardImg}>
-            <Image
-              src='/slideshow1.jpg'
-              alt='photo'
-              layout='fill'
-              className={styles.img}
-            />
-          </div>
-        </div>
-        <div className={styles.card}>
-          <h2>Trash can cover</h2>
-          <div className={styles.cardImg}>
-            <Image
-              src='/slideshow1.jpg'
-              alt='photo'
-              layout='fill'
-              className={styles.img}
-            />
-          </div>
-        </div>
-        <div className={styles.card}>
-          <h2>Trash can cover</h2>
-          <div className={styles.cardImg}>
-            <Image
-              src='/slideshow1.jpg'
-              alt='photo'
-              layout='fill'
-              className={styles.img}
-            />
-          </div>
-        </div>
-        <div className={styles.card}>
-          <h2>Trash can cover</h2>
-          <div className={styles.cardImg}>
-            <Image
-              src='/slideshow1.jpg'
-              alt='photo'
-              layout='fill'
-              className={styles.img}
-            />
-          </div>
-        </div>
+        {sportsData.map((item) => {
+          return (
+            <div className={styles.card} onClick={modalHandler} key={item.id}>
+              <h2>{item.title}</h2>
+              <div className={styles.cardImg}>
+                <Image
+                  src={item.images[1].img}
+                  alt='photo'
+                  layout='fill'
+                  className={styles.img}
+                />
+              </div>
+            </div>
+          );
+        })}
       </section>
     </Fragment>
   );
