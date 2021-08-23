@@ -1,25 +1,59 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
+import axios from 'axios'
+
 import Hero from '../../components/UI/Hero';
 import Image from 'next/image';
 import Modal from '../../components/UI/Modal/catalogModal';
+import ProductContext from '../../context/product-context';
 
 import styles from './specificCatalog.module.scss';
 import sportsData from '../../data/sportscatalog';
 
 const sports = () => {
   const [modal, setModal] = useState();
+  const [selectedItem, setSelectedItem] = useState([]);
+  const productCTX = useContext(ProductContext)
+
+  let productSelected = productCTX.productsSelected;
 
   const modalHandlerNull = () => {
     setModal(null);
   };
-  const modalHandler = () => {
+  const modalHandler = (event) => {
+    const ID = event.currentTarget.id;
+    const filteredData = sportsData.find((item) => item.id === ID);
+    setSelectedItem({filteredData}) 
     setModal(true);
   };
-  // console.log(JSON.stringify(sportsData));
+
+  const sendRequestHandler = () => {
+    if(!productSelected) {
+      return;
+    }
+    console.log(`Submitted Request`);
+    let products = productCTX.products;
+    axios({
+      method: 'POST',
+      url: '/api/products',
+      data: JSON.stringify(products),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => {
+        console.log('Response recieved');
+        console.log(response);
+      })
+      .catch((res) => {
+        console.log(`Error ${res}`);
+      });
+    
+  }
+
 
   return (
     <Fragment>
-      {modal && <Modal onConfirm={modalHandlerNull} />}
+      {modal && <Modal onConfirm={modalHandlerNull} product={selectedItem} />}
       <Hero
         image='/slideshow1.jpg'
         alt='Sports catalog hero banner'
@@ -37,13 +71,13 @@ const sports = () => {
         </p>
         <div className={styles.btnContainer}>
           <button>Download PDF</button>
-          <button disabled>Send Request</button>
+          <button disabled={!productSelected} onClick={sendRequestHandler}>Send Request</button>
         </div>
       </section>
       <section className={styles.cardContainer}>
         {sportsData.map((item) => {
           return (
-            <div className={styles.card} onClick={modalHandler} key={item.id}>
+            <div className={styles.card} onClick={modalHandler} key={item.id} id={item.id}>
               <h2>{item.title}</h2>
               <div className={styles.cardImg}>
                 <Image

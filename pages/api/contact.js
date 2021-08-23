@@ -22,7 +22,7 @@ export default function (req, res) {
     });
 
     const mailData = {
-        from: "Admin <danobrryder@gmail.com>",
+        from: "Sender <danobrryder@gmail.com>",
         to:'Recipient <dward1502@gmail.com>',
         subject: `Message from ${name}`,
         text: req.body.messageValue,
@@ -41,15 +41,4 @@ export default function (req, res) {
             res.send(200)
         })
     })
-
-
-
-    // transporter.sendMail(info, (err,info) => {
-    //     if(err){
-    //         console.log(err)
-    //     } else {
-    //         console.log(`Mail sent ${info}`)
-    //         res.send(200)
-    //     }
-    // })
 }

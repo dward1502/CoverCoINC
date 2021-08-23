@@ -1,13 +1,26 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
+import Image from 'next/image';
+import ProductContext from '../../../context/product-context';
+
 import styles from './modal.module.scss';
 import { FaTimes } from 'react-icons/fa';
-import Image from 'next/image'
 
 const Modal = (props) => {
+  const productCTX = useContext(ProductContext);
+  console.log(`This is global context ${JSON.stringify(productCTX)}`);
 
+  console.log(`This is data in the modal component ${JSON.stringify(props.selectedItem)}`);
+  
+  const {id,title,features,images} = props.selectedItem
+  const selectedProduct = {
+    id:id,
+    title:title
+  }
 
-
-
+  const submitHandler = (item) => {
+    console.log(item);
+    productCTX.addProduct(item);
+  }
 
   return (
     <Fragment>
@@ -18,20 +31,14 @@ const Modal = (props) => {
         </div>
         <div className={styles.container}>
           <div className={styles.info}>
-            <h1>{props.title}</h1>
+            <h1>{title}</h1>
             <h3>Features</h3>
             <ul className={styles.list}>
-              <li>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Suscipit harum quidem ipsa sapiente, eligendi perferendis
-                voluptate!
-              </li>
-              <li>Quidem laudantium minima expedita dignissimos saepe. </li>
-              <li>commodi nisi possimus exercitationem magni soluta animi?</li>
-              <li>
-                ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-                harum quidem ipsa sapiente,
-              </li>
+              {features.map((listItem)=>{
+                return (
+                  <li key={listItem.id}>{listItem.text}</li>
+                )
+              })}
             </ul>
             <h3>Materials</h3>
             <div>
@@ -64,26 +71,22 @@ const Modal = (props) => {
             </div>
             <div className={styles.dropdownContainer}></div>
             <div className={styles.btnContainer}>
-              <button onClick={props.submitItem}>Add Item</button>
+              <button onClick={submitHandler.bind(null,selectedProduct)}>Add Item</button>
             </div>
           </div>
           <div className={styles.images}>
-            <div className={styles.imgContainer}>
-              <Image
-                src='/roundTrashCan.svg'
-                alt='photo'
-                layout='fill'
-                className={styles.img}
-              />
-            </div>
-            <div className={styles.imgContainer}>
-              <Image
-                src='/roundTrashCan.svg'
-                alt='photo'
-                layout='fill'
-                className={styles.img}
-              />
-            </div>
+            {images.map((imgItem)=>{
+              return (
+                <div key={imgItem.id} className={styles.imgContainer}>
+                  <Image
+                    src={imgItem.img}
+                    alt='photo'
+                    layout='fill'
+                    className={styles.img}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

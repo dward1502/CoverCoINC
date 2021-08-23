@@ -33,7 +33,7 @@ module.exports = [
   },
   {
     id: '2',
-    title: 'Round Trash Can Cover',
+    title: 'Square Trash Can Cover',
     features: [
       {
         id: '1a',
@@ -65,7 +65,7 @@ module.exports = [
   },
   {
     id: '3',
-    title: 'Round Trash Can Cover',
+    title: 'Box Trash Can Cover',
     features: [
       {
         id: '1a',
@@ -97,7 +97,7 @@ module.exports = [
   },
   {
     id: '4',
-    title: 'Round Trash Can Cover',
+    title: 'Triangle Trash Can Cover',
     features: [
       {
         id: '1a',
