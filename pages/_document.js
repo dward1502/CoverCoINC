@@ -8,13 +8,14 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang='en'>
         <Head />
         <body>
           <Main />
           <NextScript />
-          <div id="backdrop-root"></div>
-          <div id="modal-root"></div>
+          <div id='notifications'></div>
+          <div id='backdrop-root'></div>
+          <div id='modal-root'></div>
         </body>
       </Html>
     );

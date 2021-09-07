@@ -1,11 +1,14 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext,useState } from 'react';
 import Image from 'next/image';
 import ProductContext from '../../../context/product-context';
+import Notification from '../notification';
 
 import styles from './modal.module.scss';
 import { FaTimes } from 'react-icons/fa';
 
 const Modal = (props) => {
+  const [addProductStatus, setAddProductStatus] = useState();
+
   const productCTX = useContext(ProductContext);
   console.log(`This is global context ${JSON.stringify(productCTX)}`);
 
@@ -20,10 +23,37 @@ const Modal = (props) => {
   const submitHandler = (item) => {
     console.log(item);
     productCTX.addProduct(item);
+    setAddProductStatus('ADDED');
+
+    const timer = setTimeout(() => {
+      props.onConfirm()
+    },1600)
+    return () => clearTimeout(timer)
+
+    // props.onConfirm()   
+
   }
+
+  let notification;
+
+  if(addProductStatus === 'ADDED') {
+    notification = {
+      status: 'success',
+      title: 'Product has been added to your request',
+      message: '',
+    };
+  }
+
 
   return (
     <Fragment>
+      {notification && (
+        <Notification
+          status={notification.status}
+          title={notification.title}
+          message={notification.message}
+        />
+      )}
       <div className={styles.backdrop} onClick={props.onConfirm} />
       <div className={styles.modal}>
         <div className={styles.exitBtn} onClick={props.onConfirm}>
@@ -34,10 +64,8 @@ const Modal = (props) => {
             <h1>{title}</h1>
             <h3>Features</h3>
             <ul className={styles.list}>
-              {features.map((listItem)=>{
-                return (
-                  <li key={listItem.id}>{listItem.text}</li>
-                )
+              {features.map((listItem) => {
+                return <li key={listItem.id}>{listItem.text}</li>;
               })}
             </ul>
             <h3>Materials</h3>
@@ -71,11 +99,13 @@ const Modal = (props) => {
             </div>
             <div className={styles.dropdownContainer}></div>
             <div className={styles.btnContainer}>
-              <button onClick={submitHandler.bind(null,selectedProduct)}>Add Item</button>
+              <button onClick={submitHandler.bind(null, selectedProduct)}>
+                Add Item
+              </button>
             </div>
           </div>
           <div className={styles.images}>
-            {images.map((imgItem)=>{
+            {images.map((imgItem) => {
               return (
                 <div key={imgItem.id} className={styles.imgContainer}>
                   <Image

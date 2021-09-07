@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useContext } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 
 import Hero from '../../components/UI/Hero';
 import Image from 'next/image';
@@ -12,7 +12,7 @@ import sportsData from '../../data/sportscatalog';
 const sports = () => {
   const [modal, setModal] = useState();
   const [selectedItem, setSelectedItem] = useState([]);
-  const productCTX = useContext(ProductContext)
+  const productCTX = useContext(ProductContext);
 
   let productSelected = productCTX.productsSelected;
 
@@ -22,12 +22,12 @@ const sports = () => {
   const modalHandler = (event) => {
     const ID = event.currentTarget.id;
     const filteredData = sportsData.find((item) => item.id === ID);
-    setSelectedItem({filteredData}) 
+    setSelectedItem({ filteredData });
     setModal(true);
   };
 
   const sendRequestHandler = () => {
-    if(!productSelected) {
+    if (!productSelected) {
       return;
     }
     console.log(`Submitted Request`);
@@ -47,10 +47,9 @@ const sports = () => {
       .catch((res) => {
         console.log(`Error ${res}`);
       });
-    
-  }
+  };
 
-
+  
   return (
     <Fragment>
       {modal && <Modal onConfirm={modalHandlerNull} product={selectedItem} />}
@@ -71,13 +70,19 @@ const sports = () => {
         </p>
         <div className={styles.btnContainer}>
           <button>Download PDF</button>
-          <button disabled={!productSelected} onClick={sendRequestHandler}>Send Request</button>
+          <button disabled={!productSelected} onClick={sendRequestHandler}>
+            Send Request
+          </button>
         </div>
       </section>
       <section className={styles.cardContainer}>
         {sportsData.map((item) => {
           return (
-            <div className={styles.card} onClick={modalHandler} key={item.id} id={item.id}>
+            <div
+              className={styles.card}
+              onClick={modalHandler}
+              key={item.id}
+              id={item.id}>
               <h2>{item.title}</h2>
               <div className={styles.cardImg}>
                 <Image

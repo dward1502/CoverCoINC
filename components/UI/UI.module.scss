@@ -135,3 +135,48 @@
     background: salmon;
   }
 }
+
+.notification {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  background-color: grey;
+  padding: 0 2rem;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  height: 8rem;
+  bottom: 24rem;
+  width: 100%;
+  left: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  z-index: 150;
+}
+
+.notification h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.notification p {
+  margin: 0;
+}
+
+.success {
+  background-color: green;
+  color: rgb(43, 43, 43);
+}
+
+.error {
+  background-color: rgb(190, 15, 15);
+}
+
+@media (min-width: 768px) {
+  .notification {
+    width: 50rem;
+    left: calc(50% - 20rem);
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+  }
+}

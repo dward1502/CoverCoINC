@@ -1,15 +1,45 @@
-import React, { Fragment } from 'react';
-import axios from 'axios';
+import React, { Fragment, useState, useEffect } from 'react';
+// import axios from 'axios';
 import useInput from '../../hooks/use-input';
+import Notification from './notification';
 
 import styles from './UI.module.scss';
 
 const isNotEmpty = (value) => value.trim() !== '';
 const isEmail = (value) => value.includes('@');
 
-const ContactForm = () => {
-  // const [submitted, setSubmitted] = useState(false);
+async function sendContactData(contactDetails) {
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    body: JSON.stringify(contactDetails),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Something went wrong!');
+  }
+  return data;
+}
+
+const ContactForm = () => {
+  const [requestStatus, setRequestStatus] = useState();
+  const [requestError, setRequestError] = useState();
+
+  useEffect(() => {
+    if (requestStatus === 'success' || requestStatus === 'error') {
+      const timer = setTimeout(() => {
+        setRequestStatus(null);
+        setRequestError(null);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [requestStatus]);
+
+  //client side validation
   const {
     value: firstNameValue,
     isValid: firstNameIsValid,
@@ -52,67 +82,73 @@ const ContactForm = () => {
   } = useInput(isNotEmpty);
   const {
     value: messageValue,
-    // isValid: messageIsValid,
-    // hasError: messageHasError,
     valueChangeHandler: messageChangeHandler,
     inputBlurHandler: messageBlurHandler,
     reset: resetMessage,
   } = useInput(isNotEmpty);
 
   let formIsValid = false;
-  if (firstNameIsValid && lastNameIsValid && emailIsValid && phoneIsValid && companyIsValid) {
+  if (
+    firstNameIsValid &&
+    lastNameIsValid &&
+    emailIsValid &&
+    phoneIsValid &&
+    companyIsValid
+  ) {
     formIsValid = true;
   }
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    if (!formIsValid) {
-      return;
-    }
-    console.log('Submitted');
-    console.log(
-      firstNameValue,
-      lastNameValue,
-      emailValue,
-      phoneValue,
-      messageValue,
-      companyValue
-    );
-
+  async function sendMessageHandler(event) {
+    event.preventDefault();
     let data = {
       firstNameValue,
       lastNameValue,
       emailValue,
       phoneValue,
       messageValue,
-      companyValue
+      companyValue,
     };
 
-    axios({
-      method: 'POST',
-      url: '/api/contact',
-      data: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    })
-      .then((response) => {
-        console.log('Response recieved');
-        if (response.status === 200) {
-          console.log(response);
-          // setSubmitted(true);
-          resetFirstName();
-          resetLastName();
-          resetEmail();
-          resetPhone();
-          resetMessage();
-          resetCompany()
-        }
-      })
-      .catch((res) => {
-        console.log(`Error ${res}`);
-      });
-  };
+    setRequestStatus('pending');
+
+    try {
+      await sendContactData(data);
+      setRequestStatus('success');
+      resetFirstName();
+      resetLastName();
+      resetEmail();
+      resetPhone();
+      resetMessage();
+      resetCompany();
+    } catch (error) {
+      setRequestError(error.message);
+      setRequestStatus('error');
+    }
+  }
+
+  let notification;
+
+  if (requestStatus === 'pending') {
+    notification = {
+      status: 'pending',
+      title: 'Sending message ...',
+      message: 'Your message is on its way!',
+    };
+  }
+  if (requestStatus === 'success') {
+    notification = {
+      status: 'success',
+      title: 'Success!',
+      message: 'Message sent successfully',
+    };
+  }
+  if (requestStatus === 'error') {
+    notification = {
+      status: 'error',
+      title: 'Error in sending message ...',
+      message: requestError,
+    };
+  }
 
   const firstNameClasses = firstNameHasError
     ? `${styles.inputGroup} ${styles.invalid}`
@@ -126,13 +162,13 @@ const ContactForm = () => {
   const phoneClasses = phoneHasError
     ? `${styles.inputGroup} ${styles.invalid}`
     : styles.inputGroup;
-    const companyClasses = companyHasError
-      ? `${styles.inputGroup} ${styles.invalid}`
-      : styles.inputGroup;
+  const companyClasses = companyHasError
+    ? `${styles.inputGroup} ${styles.invalid}`
+    : styles.inputGroup;
 
   return (
     <Fragment>
-      <form onSubmit={submitHandler} className={styles.form}>
+      <form onSubmit={sendMessageHandler} className={styles.form}>
         <div className={styles.inputRow}>
           <div className={firstNameClasses}>
             <label htmlFor='firstName'>First Name</label>
@@ -230,6 +266,13 @@ const ContactForm = () => {
           </button>
         </div>
       </form>
+      {notification && (
+        <Notification
+          status={notification.status}
+          title={notification.title}
+          message={notification.message}
+        />
+      )}
     </Fragment>
   );
 };
