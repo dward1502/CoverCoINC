@@ -31,54 +31,34 @@
   position: relative !important;
   height: unset !important;
 }
-.searchContainer {
-  display: flex;
-  width: 30rem;
-  @include respond(tab-port) {
-    width: 18rem;
-  }
-  @include respond(phone-md) {
+.btn {
+  font-size: 2rem;
+  text-decoration: none;
+  color: $primary-dark;
+  background-color: $white;
+  padding: 0.3rem 2rem;
+  border: none;
+  box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.75);
+}
+.headerBtn {
+  @media only screen and (max-width:38.75em){
     display: none;
   }
 }
-.searchBox {
-  width: 100%;
-  border-right: none;
-  border: 0.3rem solid $white;
-  border-radius: 0.5rem 0 0 0.5rem;
-  outline: none;
-  padding: 0.5rem;
-  height: 2.5rem;
-  box-shadow: 0 1rem 2.4rem -0.2rem rgba(0, 0, 0, 0.57);
-  -webkit-box-shadow: 0 1rem 2.4rem -0.2rem rgba(0, 0, 0, 0.57);
-  -moz-box-shadow: 0 1rem 2.4rem -0.2rem rgba(0, 0, 0, 0.57);
-  color: $primary-light;
-  &:focus {
-    color: $primary-dark;
+.mobileHeaderBtn {
+  display: none;
+  @media only screen and (max-width:37.5em){
+    display: block;
   }
 }
-.searchBoxBtn {
-  background: $primary-dark;
-  color: white;
-  width: 4rem;
-  height: 2.5rem;
-  border: 0.1rem solid $primary-dark;
-  border-radius: 0 0.5rem 0.5rem 0;
-  box-shadow: 0 1rem 2.4rem -0.2rem rgba(0, 0, 0, 0.57);
-  -webkit-box-shadow: 0 1rem 2.4rem -0.2rem rgba(0, 0, 0, 0.57);
-  -moz-box-shadow: 0 1rem 2.4rem -0.2rem rgba(0, 0, 0, 0.57);
-  color: $white;
-  text-align: center;
-  cursor: pointer;
-  font-size: 1.5rem;
-}
+
 .contactInfo {
   display: flex;
   font-size: 1.3rem;
   font-family: $font-arvo;
   p {
     margin: 0rem 0.3rem;
-    @include respond(phone){
+    @include respond(phone) {
       display: none;
     }
   }
@@ -94,9 +74,9 @@
     font-size: 1.1rem;
   }
   @include respond(phone-small) {
-      margin: 0rem .5rem;
-      font-size: 1rem;
-    }
+    margin: 0rem 0.5rem;
+    font-size: 1rem;
+  }
 }
 
 .menuIcon {

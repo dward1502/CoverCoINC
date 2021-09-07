@@ -8,14 +8,10 @@ import styles from './contact.module.scss';
 const ContactPage = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.formBox}>
-        <h1>Contact Us Today!</h1>
-        <Form />
-      </div>
       <div className={styles.infoBox}>
         <div className={styles.imgContainer}>
           <Image
-            src='/covercoinclogo.png'
+            src='/images/coverCoLogoBlack.webp'
             alt='CoverCoInc logo'
             layout='fill'
             className={styles.img}
@@ -45,6 +41,7 @@ const ContactPage = () => {
             <p>Saturday &amp; Sunday Closed</p>
           </div>
         </div>
+
         <div className={styles.usaImg}>
           <Image
             src='/usa_stamp.jpg'
@@ -53,6 +50,10 @@ const ContactPage = () => {
             height={75}
           />
         </div>
+      </div>
+      <div className={styles.formBox}>
+        <h1>Contact Us Today!</h1>
+        <Form />
       </div>
     </div>
   );

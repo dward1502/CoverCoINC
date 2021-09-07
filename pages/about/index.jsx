@@ -1,8 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { Fragment } from 'react';
 import Hero from '../../components/UI/Hero';
 import {
-  FaQuoteLeft,
-  FaQuoteRight,
   FaTwitter,
   FaFacebook,
   FaLinkedin,
@@ -19,39 +18,32 @@ const index = () => {
   return (
     <Fragment>
       <Hero
-        image='/slideshow1.jpg'
+        image='/images/aboutHero.webp'
         alt='Hero banner about page'
         title='About'
       />
       <section className={styles.quote}>
         <p>
-          <i>
-            <FaQuoteLeft />
-          </i>
-          &nbsp; Our continuing mission is to excel and exceed your expectations
-          : effortlessly... effectively... affordable!!!&nbsp;
-          <i>
-            <FaQuoteRight />
-          </i>
+          Our continuing mission is to excel and exceed your expectations :
+          effortlessly... effectively... affordable!!!
         </p>
       </section>
       <section className={styles.info}>
         <p>
-          In the beginning of time: &quot If it doesn&apost look good ...&quot,
-          demanded Chef Hans, &quotwrap it with a linen!!!&quot
+          In the beginning of time: " If it doesn't look good ...", demanded
+          Chef Hans, " wrap it with a linen!!!"
         </p>
         <p>
-          Thus, &quotwrapping with a linen&quot had been the internation
-          industry standard until CoverCoInc&aposs inventor/founder/co-owner Breck
-          Johnson and core staff began a twenty-year expedition to resolve that
-          specific issue. Along the way, CoverCo Inc. has developed and
-          redesigned what is now the <strong>Giorgia Armani</strong> of custom
-          covers. Our covers are built to fit specific products with specific
-          patterns, instead of using generic sizes, spandex or sloppily draped
-          linens.
+          Thus, "wrapping with a linen" had been the internation industry
+          standard until CoverCoInc's inventor/founder/co-owner Breck Johnson
+          and core staff began a twenty-year expedition to resolve that specific
+          issue. Along the way, CoverCo Inc. has developed and redesigned what
+          is now the <strong>Giorgia Armani</strong> of custom covers. Our
+          covers are built to fit specific products with specific patterns,
+          instead of using generic sizes, spandex or sloppily draped linens.
         </p>
         <p>
-          CoverCo Inc&aposs main focus has been to efficiently design, build with
+          CoverCo Inc's main focus has been to efficiently design, build with
           quality fabrics, and brand primarily with embroidered logos. We have
           sourced the finest fabrics for aesthetic covers for ballrooms, pool
           areas, lobbies, and concession areas, padded fabrics for storage, as
@@ -96,26 +88,26 @@ const index = () => {
       <section className={styles.photos}>
         <div className={styles.container}>
           <Image
-            src='/slideshow1.jpg'
+            src='/images/products/table.webp'
             alt='About image one'
             layout='fill'
-            objectFit='cover'
+            className={styles.photo}
           />
         </div>
         <div className={styles.container}>
           <Image
-            src='/slideshow2.jpg'
+            src='/images/products/roundTrashCan.webp'
             alt='About image two'
             layout='fill'
-            objectFit='cover'
+            className={styles.photo}
           />
         </div>
         <div className={styles.container}>
           <Image
-            src='/slideshow3.jpg'
+            src='/images/products/scubaTable.webp'
             alt='About image three'
             layout='fill'
-            objectFit='cover'
+            className={styles.photo}
           />
         </div>
       </section>
@@ -160,7 +152,6 @@ const index = () => {
                       </a>
                     </Link>
                   </div>
-                  <p className={styles.teamText}>{info.info}</p>
                   <div className={styles.contactInfo}>
                     <div className={styles.contact}>
                       <a href={info.phone}>

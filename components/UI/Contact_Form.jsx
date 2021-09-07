@@ -43,6 +43,14 @@ const ContactForm = () => {
     reset: resetPhone,
   } = useInput(isNotEmpty);
   const {
+    value: companyValue,
+    isValid: companyIsValid,
+    hasError: companyHasError,
+    valueChangeHandler: companyChangeHandler,
+    inputBlurHandler: companyBlurHandler,
+    reset: resetCompany,
+  } = useInput(isNotEmpty);
+  const {
     value: messageValue,
     // isValid: messageIsValid,
     // hasError: messageHasError,
@@ -52,7 +60,7 @@ const ContactForm = () => {
   } = useInput(isNotEmpty);
 
   let formIsValid = false;
-  if (firstNameIsValid && lastNameIsValid && emailIsValid && phoneIsValid) {
+  if (firstNameIsValid && lastNameIsValid && emailIsValid && phoneIsValid && companyIsValid) {
     formIsValid = true;
   }
 
@@ -67,7 +75,8 @@ const ContactForm = () => {
       lastNameValue,
       emailValue,
       phoneValue,
-      messageValue
+      messageValue,
+      companyValue
     );
 
     let data = {
@@ -76,6 +85,7 @@ const ContactForm = () => {
       emailValue,
       phoneValue,
       messageValue,
+      companyValue
     };
 
     axios({
@@ -96,6 +106,7 @@ const ContactForm = () => {
           resetEmail();
           resetPhone();
           resetMessage();
+          resetCompany()
         }
       })
       .catch((res) => {
@@ -115,6 +126,9 @@ const ContactForm = () => {
   const phoneClasses = phoneHasError
     ? `${styles.inputGroup} ${styles.invalid}`
     : styles.inputGroup;
+    const companyClasses = companyHasError
+      ? `${styles.inputGroup} ${styles.invalid}`
+      : styles.inputGroup;
 
   return (
     <Fragment>
@@ -177,6 +191,23 @@ const ContactForm = () => {
             />
             {phoneHasError && (
               <p className={styles.errorText}>Please enter a phone number.</p>
+            )}
+          </div>
+        </div>
+
+        <div className={styles.inputRow}>
+          <div className={companyClasses}>
+            <label htmlFor='company'>Company Name</label>
+            <input
+              type='text'
+              name='company'
+              id='fName'
+              value={companyValue}
+              onChange={companyChangeHandler}
+              onBlur={companyBlurHandler}
+            />
+            {companyHasError && (
+              <p className={styles.errorText}>Please enter a Company name.</p>
             )}
           </div>
         </div>

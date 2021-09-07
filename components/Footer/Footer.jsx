@@ -13,7 +13,7 @@ const Footer = () => {
         <div className={styles.logo}>
           <Image
             alt='CoverCoInc'
-            src='/covercoinclogo.png'
+            src='/images/coverCoLogoBlack.webp'
             layout='fill'
             className={styles.custom_img}
           />

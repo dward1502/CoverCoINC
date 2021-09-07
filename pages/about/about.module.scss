@@ -1,20 +1,23 @@
 @import '../../scss/variables';
 @import '../../scss/mixins';
+
 .quote {
   text-align: center;
   font-family: $font-mont;
   padding: 10rem 0rem 5rem;
-  background-color: $white;
+  background-color: $background-color;
+  color: $white;
   & p {
     text-transform: capitalize;
-    font-size: 2.1rem;
+    font-size: 3rem;
     font-weight: 700;
     font-family: $font-mont;
   }
 }
 .info {
   padding: 5rem 10rem 10rem 10rem;
-  background: $white;
+   background-color: $background-color;
+  color: $white;
   display: flex;
   flex-direction: column;
   & p {
@@ -24,7 +27,7 @@
     font-style: $font-cairo;
   }
   @include respond(phone-small) {
-    padding: 5rem 0rem 0rem 5rem;
+    padding: 5rem 1rem;
   }
 }
 .usaImg {
@@ -39,18 +42,19 @@
   margin: 6rem 0;
 }
 .card {
-  background: $white;
+   background-color: $background-color;
+  color: $white;
   box-shadow: -0.1rem 0.4rem 1.7rem 0.2rem rgba(0, 0, 0, 0.75);
-  height: 25rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 2rem;
   & h1 {
     text-transform: capitalize;
     font-size: 3rem;
     font-weight: 800;
-    color: $black;
+    color: $white;
     font-family: $font-mont;
     margin-bottom: 2rem;
   }
@@ -89,15 +93,16 @@
 }
 .teamContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
 }
 .box {
-  height: 40rem;
-  width: fit-content;
   margin: 0.2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @include respond(phone-small){
+    flex-direction: column;
+  }
 }
 .imgContainer {
   border: 1px solid $black;
@@ -107,6 +112,14 @@
   position: relative;
   margin-left: 4rem;
   overflow: hidden;
+  @include respond(phone-small) {
+    margin: 3rem 0rem;
+    height: 30rem;
+    width: 20rem;
+  }
+}
+.photo{
+  width: 100% !important;
 }
 .img {
   display: inline-block;
@@ -123,6 +136,12 @@
   width: 50%;
   align-items: center;
   padding: 6rem 2rem;
+  background-color: $background-color;
+  color: $white;
+  margin-left: 2rem;
+  @include respond(phone-small) {
+    margin: 1.5rem 0rem;
+  }
 }
 .name {
   font-size: 2.4rem;
@@ -138,10 +157,9 @@
 .socialIcons {
   display: flex;
   padding-bottom: 1rem;
-  border-bottom: 0.2rem solid $black;
   & a {
     padding: 0rem 1rem;
-    color: $black;
+    color: $white;
     font-size: 2rem;
   }
 }
@@ -151,7 +169,7 @@
   font-family: $font-cairo;
 }
 .contactInfo {
-  border-top: 0.2rem solid $black;
+  border-top: 0.2rem solid $white;
   padding-top: 1rem;
 }
 .contact {
@@ -161,9 +179,11 @@
   padding-top: 0.2rem;
   font-size: 1.6rem;
   font-family: $font-mont;
+  color: $white;
+
   & a {
     text-decoration: none;
-    color: $black;
+    color: $white;
     & i {
       margin-right: 1rem;
     }

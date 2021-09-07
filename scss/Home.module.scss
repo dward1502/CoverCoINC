@@ -38,7 +38,7 @@
   grid-gap: 2rem;
   margin: 8rem 0;
 }
-.About {
+.card {
   background: linear-gradient(90deg, $black 0%, $primary 100%);
   box-shadow: -0.8rem 1rem 1.1rem 0.4rem rgba(0, 0, 0, 0.75);
   height: 25rem;
@@ -48,45 +48,7 @@
   & a {
     text-decoration: none;
     font-family: $font-mont;
-    font-size: 2rem;
-    font-weight: 800;
-    color: $white;
-    cursor: pointer;
-  }
-  @include respond(phone) {
-    height: 18rem;
-  }
-}
-.Customize {
-  background: linear-gradient(90deg, $black 0%, $primary 100%);
-  box-shadow: -0.8rem 1rem 1.1rem 0.4rem rgba(0, 0, 0, 0.75);
-  height: 25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  & a {
-    text-decoration: none;
-    font-family: $font-mont;
-    font-size: 2rem;
-    font-weight: 800;
-    color: $white;
-    cursor: pointer;
-  }
-  @include respond(phone) {
-    height: 18rem;
-  }
-}
-.Industries {
-  background: linear-gradient(90deg, $black 0%, $primary 100%);
-  box-shadow: -0.8rem 1rem 1.1rem 0.4rem rgba(0, 0, 0, 0.75);
-  height: 25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  & a {
-    text-decoration: none;
-    font-family: $font-mont;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 800;
     color: $white;
     cursor: pointer;

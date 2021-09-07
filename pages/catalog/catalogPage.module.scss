@@ -4,7 +4,8 @@
 .container {
   font-size: 1.8rem;
   font-family: $font-cairo;
-  background-color: $white;
+  background-color: $background-color;
+  color: $white;
   padding: 4rem;
   display: flex;
   flex-direction: column;
@@ -12,6 +13,8 @@
 .catalogInfo {
   padding: 3rem;
   text-indent: 4rem;
+  font-size: 2rem;
+  font-family: $font-cairo;
 }
 .btnContainer {
   padding: 3rem;
@@ -44,6 +47,8 @@
 .functionality {
   padding: 4rem;
   text-indent: 4rem;
+  font-size: 2rem;
+  font-family: $font-cairo;
 }
 .catalogs {
   display: grid;
@@ -56,6 +61,7 @@
   flex-direction: column;
   align-items: center;
   padding: 3rem;
+  font-family: $font-mont;
 }
 .link {
     margin-top: 2rem;

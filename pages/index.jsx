@@ -10,17 +10,17 @@ const Index = () => {
     <Fragment>
       <Slider />
       <section className={styles.container}>
-        <div className={styles.About}>
+        <div className={styles.card}>
           <Link href='/about'>
             <a className='cardLink'>About</a>
           </Link>
         </div>
-        <div className={styles.Customize}>
+        <div className={styles.card}>
           <Link href='/customize'>
             <a className='cardLink'>Customize</a>
           </Link>
         </div>
-        <div className={styles.Industries}>
+        <div className={styles.card}>
           <Link href='/industries'>
             <a className='cardLink'>Industries</a>
           </Link>

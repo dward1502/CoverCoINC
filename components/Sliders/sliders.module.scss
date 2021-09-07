@@ -1,5 +1,5 @@
-@import "../../scss/variables";
-@import "../../scss/mixins";
+@import '../../scss/variables';
+@import '../../scss/mixins';
 
 .img {
   object-fit: cover;
@@ -8,13 +8,60 @@
   height: 35rem;
   z-index: 5;
 }
+
+.imgContainer {
+  background: tan;
+  height: 100%;
+  width: 60%;
+  position: relative;
+}
+.textContainer {
+  background-color: $black;
+  height: 100%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3rem;
+  & h1 {
+    font-size: 3rem;
+    font-family: $font-mont;
+    font-weight: 800;
+    color: $white;
+    text-transform: uppercase;
+  }
+  & p {
+    font-size: 1.6rem;
+    font-family: $font-arvo;
+    color: $white;
+  }
+  & a {
+    font-family: $font-arvo;
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    margin-top: 3rem;
+    background-color: $primary-dark;
+    color: $white;
+    border: 0.1rem solid $primary-dark;
+    border-radius: 0.5rem;
+    box-shadow: 0.1rem 0.3rem 1.1rem 0.6rem rgba(0, 0, 0, 0.46);
+    cursor: pointer;
+    z-index: 20;
+    text-decoration: none;
+    &:hover {
+      translate: 1.1;
+    }
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 10;
-  & p { 
+  & p {
     font-size: 2rem;
     font-family: $font-mont;
     font-weight: 800;
@@ -28,12 +75,12 @@
     margin-top: 3rem;
     background-color: $primary-dark;
     color: $white;
-    border: .1rem solid $primary-dark;
-    border-radius: .5rem;
-    box-shadow: .1rem .3rem 1.1rem .6rem rgba(0,0,0,0.46);
+    border: 0.1rem solid $primary-dark;
+    border-radius: 0.5rem;
+    box-shadow: 0.1rem 0.3rem 1.1rem 0.6rem rgba(0, 0, 0, 0.46);
     cursor: pointer;
     z-index: 20;
-    &:hover{
+    &:hover {
       translate: 1.1;
     }
   }

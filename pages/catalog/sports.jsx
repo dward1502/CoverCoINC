@@ -55,7 +55,7 @@ const sports = () => {
     <Fragment>
       {modal && <Modal onConfirm={modalHandlerNull} product={selectedItem} />}
       <Hero
-        image='/slideshow1.jpg'
+        image='/images/slideshow1.webp'
         alt='Sports catalog hero banner'
         title='Sports'
       />

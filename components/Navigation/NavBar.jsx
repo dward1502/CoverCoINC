@@ -29,6 +29,9 @@ const NavBar = () => {
 
   return (
     <nav className={styles.navbar}>
+      <Link href='#'>
+        <a className={`${styles.btn} ${styles.mobileHeaderBtn}`}>Catalog Quote</a>
+      </Link>
       <div className={styles.menuIcon} onClick={handleClick}>
         <i>{click ? <FaTimes /> : <FaBars />}</i>
       </div>

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Image from 'next/image';
+import Link from 'next/link'
 
-import { FaSearch } from 'react-icons/fa';
 import styles from './navigation.module.scss';
 
 const Header = () => {
@@ -11,23 +11,14 @@ const Header = () => {
         <div className={styles.logo}>
           <Image
             alt='CoverCoInc'
-            src='/covercoinclogo.png'
+            src='/images/coverCoLogoBlack.webp'
             layout='fill'
             className={styles.custom_img}
           />
         </div>
-        <div className={styles.searchContainer}>
-          <input
-            type='search'
-            name='searchBox'
-            id='search'
-            placeholder='Search...'
-            className={styles.searchBox}
-          />
-          <button type='submit' className={styles.searchBoxBtn}>
-            <FaSearch />
-          </button>
-        </div>
+        <Link href='#'>
+          <a className={`${styles.btn} ${styles.headerBtn}`}>Catalog Quote</a>
+        </Link>
         <div className={styles.contactInfo}>
           <p>Contact Us Today!</p>
           <a href='tel:+18009598527'> 1.800.959.8527</a> |

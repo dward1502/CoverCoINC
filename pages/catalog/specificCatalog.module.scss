@@ -1,7 +1,8 @@
 @import '../../scss/variables';
 
 .header {
-  background-color: $white;
+  background-color: $background-color;
+  color: $white;
   padding: 4rem;
   font-size: 1.9rem;
   font-family: $font-cairo;
@@ -23,26 +24,28 @@
     box-shadow: -0.1rem 0.4rem 1.7rem 0.2rem rgba(0, 0, 0, 0.75);
     margin: 0rem 5rem;
     &:disabled {
-      background-color: rgba(9, 138, 170, 0.541);
+      background-color: rgba(9, 138, 170, 0.233);
       box-shadow: none;
       border: 0.1rem solid $primary-dark;
     }
   }
 }
 .cardContainer {
-  background-color: $white;
+  background-color: $background-color;
+  color: $white;
   padding: 5rem 3rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 }
 .card {
-  background: cornflowerblue;
+  background: rgb(4,84,99);
+  background: linear-gradient(90deg, rgba(4,84,99,1) 14%, $primary-light 71%, $primary-dark);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  border: 0.1rem solid $black;
+  // border: 0.1rem solid $black;
   margin: 1rem;
   cursor: pointer;
   box-shadow: -0.1rem 0.4rem 1.7rem 0.2rem rgba(0, 0, 0, 0.75);
@@ -56,12 +59,11 @@
 }
 .cardImg {
   height: 22rem;
-  width: 100%;
+  width: 20rem;
   position: relative;
-  border: 0.1rem solid $black;
 }
 .img {
-  object-fit: cover;
+  object-fit: contain;
   width: 100% !important;
   position: relative !important;
   height: unset !important;

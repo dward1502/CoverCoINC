@@ -51,19 +51,6 @@
   z-index: 0;
 }
 
-
-.formBox {
-  border-right: 0.3rem solid $black;
-  padding: 3rem;
-  @include respond(phone) {
-      padding: 0;
-  }
-  & h1 {
-    font-family: $font-arvo;
-    margin-bottom: 2rem;
-  }
-}
-
 .inputRow {
   display: flex;
 }
@@ -80,10 +67,11 @@
     font-weight: 600;
   }
   & input {
-    padding: 0.3rem 0.2rem;
+    // padding: 0.3rem 0.2rem;
     font-family: $font-cairo;
     border: 0.2rem solid $primary-dark;
     border-radius: 1rem;
+    width: 18rem;
     background: rgb(255, 255, 255);
   }
 
@@ -94,12 +82,12 @@
     border-radius: 1rem;
     background: rgb(255, 255, 255);
     width: 38rem;
-    @include respond(tab-land) {
-        width: 34rem;
-    }
-    @include respond(phone) {
-        width: 38rem;
-    }
+    // @include respond(tab-land) {
+    //     width: 38rem;
+    // }
+    // @include respond(phone) {
+    //     width: 38rem;
+    // }
   }
 }
 .form {

@@ -8,7 +8,7 @@ const CustomizePage = () => {
   return (
     <div className={styles.container}>
       <Hero
-        image='/slideshow1.jpg'
+        image='/images/slideshow1.webp'
         alt='Customize hero banner'
         title='Customize'
       />
@@ -20,7 +20,8 @@ const CustomizePage = () => {
           Eleven (11) years ago CoverCo. Inc. introduced a cutting edge product
           line to impress and attract customers and have been adding to it
           continually. Our covers dress up each and every problem area that
-          before lacked attention. <strong>CoverCo. Inc. can cover it all!</strong> Watch the
+          before lacked attention.{' '}
+          <strong>CoverCo. Inc. can cover it all!</strong> Watch the
           transformation, from what was once an eyesore to a custom-tailored
           look designed for your specific needs.
         </p>
@@ -31,7 +32,7 @@ const CustomizePage = () => {
       <section className={styles.varietyInfo}>
         <div className={styles.varietyText}>
           <p>
-            Available in many standard and limtless sizes to cover almost
+            Available in many standard and limitless sizes to cover almost
             anything:
           </p>
           <ul className={styles.list}>
@@ -68,7 +69,7 @@ const CustomizePage = () => {
         <div className={styles.varietyImgs}>
           <div className={styles.imgContainer}>
             <Image
-              src='/slideshow2.jpg'
+              src='/images/products/roundTrashCan.webp'
               alt=''
               layout='fill'
               className={styles.img}
@@ -76,7 +77,7 @@ const CustomizePage = () => {
           </div>
           <div className={styles.imgContainer}>
             <Image
-              src='/slideshow2.jpg'
+              src='/images/products/table.webp'
               alt=''
               layout='fill'
               className={styles.img}
@@ -151,7 +152,7 @@ const CustomizePage = () => {
           <div className={styles.fabricImg}>
             <div className={styles.fabricImgContainer}>
               <Image
-                src='/slideshow2.jpg'
+                src='/images/products/roundTrashCan.webp'
                 alt=''
                 layout='fill'
                 className={styles.img}
@@ -162,7 +163,10 @@ const CustomizePage = () => {
       </section>
       <section className={styles.features}>
         <div className={styles.featuresBtn}>
-          <p>Use the calculator below to estimate what the costs could be for your specific needs.</p>
+          <p>
+            Use the calculator below to estimate what the costs could be for
+            your specific needs.
+          </p>
           <button>Calculator</button>
         </div>
         <div className={styles.featuresInfo}>

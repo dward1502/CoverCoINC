@@ -41,7 +41,7 @@ const IndustriesPage = () => {
       <section className={styles.section1}>
         <div className={styles.imgContainer}>
           <Image
-            src='/slideshow1.jpg'
+            src='/images/slideshow1.webp'
             alt='Sports industry image'
             layout='fill'
             className={styles.img}
@@ -49,7 +49,7 @@ const IndustriesPage = () => {
         </div>
         <div className={styles.infoContainer}>
           <h1>Sports</h1>
-          <div className={styles.icons}></div>
+          {/* <div className={styles.icons}></div> */}
           <Link href='catalog/sports'>
             <a className={styles.btnLink}>Catalog</a>
           </Link>
@@ -59,14 +59,14 @@ const IndustriesPage = () => {
       <section className={styles.section2}>
         <div className={styles.infoContainer}>
           <h1>Universities</h1>
-          <div className={styles.icons}></div>
+          {/* <div className={styles.icons}></div> */}
           <Link href='catalog/universities'>
             <a className={styles.btnLink}>Catalog</a>
           </Link>
         </div>
         <div className={styles.imgContainer}>
           <Image
-            src='/slideshow2.jpg'
+            src='/images/slideshow2.webp'
             alt='Sports industry image'
             layout='fill'
             className={styles.img}
@@ -77,7 +77,7 @@ const IndustriesPage = () => {
       <section className={styles.section1}>
         <div className={styles.imgContainer}>
           <Image
-            src='/slideshow1.jpg'
+            src='/slideshow3.jpg'
             alt='Sports industry image'
             layout='fill'
             className={styles.img}
@@ -85,7 +85,7 @@ const IndustriesPage = () => {
         </div>
         <div className={styles.infoContainer}>
           <h1>Restaurants</h1>
-          <div className={styles.icons}></div>
+          {/* <div className={styles.icons}></div> */}
           <Link href='catalog/restaurant'>
             <a className={styles.btnLink}>Catalog</a>
           </Link>
@@ -95,15 +95,14 @@ const IndustriesPage = () => {
       <section className={styles.section2}>
         <div className={styles.infoContainer}>
           <h1>Casinos</h1>
-          <div className={styles.icons}></div>
+          {/* <div className={styles.icons}></div> */}
           <Link href='catalog/casino'>
             <a className={styles.btnLink}>Catalog</a>
           </Link>
         </div>
         <div className={styles.imgContainer}>
-         
           <Image
-            src='/slideshow2.jpg'
+            src='/images/slideshow1.webp'
             alt='Sports industry image'
             layout='fill'
             className={styles.img}
