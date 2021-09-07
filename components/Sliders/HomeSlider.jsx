@@ -40,10 +40,10 @@ const HomeSlider = () => {
     };
   }, [pause, slider]);
     // const [sliderRef] = useKeenSlider({loop:true})
-    const buttonHandler = (e) => {
-        e.stopPropagation()
-        console.log('Button on slideshow clicked');
-    }
+    // const buttonHandler = (e) => {
+    //     e.stopPropagation()
+    //     console.log('Button on slideshow clicked');
+    // }
 
   return (
     <Fragment>
