@@ -4,6 +4,7 @@ import axios from 'axios';
 import Hero from '../../components/UI/Hero';
 import Image from 'next/image';
 import Modal from '../../components/UI/Modal/catalogModal';
+import ViewRequestModal from '../../components/UI/Modal/productsModal'
 import ProductContext from '../../context/product-context';
 
 import styles from './specificCatalog.module.scss';
@@ -11,14 +12,21 @@ import sportsData from '../../data/sportscatalog';
 
 const sports = () => {
   const [modal, setModal] = useState();
+  const [viewRequest, setViewRequest] = useState();
   const [selectedItem, setSelectedItem] = useState([]);
+  const [selectedProducts, setSelectedProducts] = useState([]);
   const productCTX = useContext(ProductContext);
+
 
   let productSelected = productCTX.productsSelected;
 
   const modalHandlerNull = () => {
     setModal(null);
   };
+  const requestModalHandlerNull = () => {
+    setViewRequest(null)
+  }
+ 
   const modalHandler = (event) => {
     const ID = event.currentTarget.id;
     const filteredData = sportsData.find((item) => item.id === ID);
@@ -26,33 +34,21 @@ const sports = () => {
     setModal(true);
   };
 
-  const sendRequestHandler = () => {
-    if (!productSelected) {
-      return;
-    }
-    console.log(`Submitted Request`);
-    let products = productCTX.products;
-    axios({
-      method: 'POST',
-      url: '/api/products',
-      data: JSON.stringify(products),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => {
-        console.log('Response recieved');
-        console.log(response);
-      })
-      .catch((res) => {
-        console.log(`Error ${res}`);
-      });
-  };
-
+  const viewRequestHandler = () => {
+      const products = productCTX.products;
+      setSelectedProducts(products)
+      setViewRequest(true)
+  }
   
   return (
     <Fragment>
       {modal && <Modal onConfirm={modalHandlerNull} product={selectedItem} />}
+      {viewRequest && (
+        <ViewRequestModal
+          onConfirm={requestModalHandlerNull}
+          products={selectedProducts}
+        />
+      )}
       <Hero
         image='/images/slideshow1.webp'
         alt='Sports catalog hero banner'
@@ -70,8 +66,8 @@ const sports = () => {
         </p>
         <div className={styles.btnContainer}>
           <button>Download PDF</button>
-          <button disabled={!productSelected} onClick={sendRequestHandler}>
-            Send Request
+          <button disabled={!productSelected} onClick={viewRequestHandler}>
+            View Request
           </button>
         </div>
       </section>
