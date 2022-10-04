@@ -11,7 +11,7 @@ const Header = () => {
         <div className={styles.logo}>
           <Image
             alt='CoverCoInc'
-            src='/images/coverCoLogoBlack.webp'
+            src='/images/coverCoLogo_white.png'
             layout='fill'
             className={styles.custom_img}
           />

@@ -1,12 +1,12 @@
 @import '../../scss/variables';
 @import '../../scss/mixins';
-
+//linear-gradient(360deg, $primary-dark 0%, $primary-light 100%)
 .Header {
   width: 100%;
   height: 13rem;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(360deg, $primary-dark 0%, $primary-light 100%);
+  background: white;
   position: absolute;
 }
 .container {
@@ -96,8 +96,6 @@
   justify-content: center;
   align-items: center;
   height: 2.5rem;
-  //   background: linear-gradient(360deg, $primary-dark 0%, $primary-light 100%);
-
   font-size: 1.8rem;
   font-family: $font-cairo;
   color: $white;
@@ -139,13 +137,14 @@
   z-index: 10;
 }
 .nav_links {
-  color: $white;
+  color: $primary;
   text-decoration: none;
   padding: 0.5rem 1rem;
   &:hover {
     background-color: $primary-light;
     border-radius: 0.4rem;
     transition: all 0.2s ease-out;
+    color: $white;
     @include respond(phone-md) {
       background-color: $primary-light;
       border-radius: 0;
