@@ -28,8 +28,24 @@ const productReducer = (state, action) => {
       productsSelected:true
     };
   }
+  if(action.type === 'REMOVE') {
+    const existingProductItemIndex = state.items.findIndex((item) => item.id === action.item.id)
+    const existingProductItem = state.items[existingProductItemIndex]
+    let updatedItems ;
+    const updatedItem = {...existingProductItem}
+    updatedItems = [...state.items]
+    updatedItems[existingProductItemIndex] = updatedItem;
+    return {
+      items:updatedItems,
+      productsSelected:true
+    }
+  }
+
+
+
   return defaultProductState;
 };
+
 
 const ProductProvider = ({ children }) => {
   const [productState, dispatchProductAction] = useReducer(
@@ -40,11 +56,15 @@ const ProductProvider = ({ children }) => {
   const addItemToProductsHandler = (item) => {
     dispatchProductAction({ type: 'ADD', item: item });
   };
+  const removeItemFromCartHandler = (id) => {
+    dispatchProductAction({type:'REMOVE', id: id})
+  }
 
   const productContext = {
     products: productState.items,
     productsSelected:productState.productsSelected,
     addProduct: addItemToProductsHandler,
+    removeProduct: removeItemFromCartHandler,
   };
 
   return (

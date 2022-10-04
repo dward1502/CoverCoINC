@@ -4,7 +4,8 @@ const ProductContext = createContext({
     products:[],
     productsSelected: false,
     // eslint-disable-next-line no-unused-vars
-    addProduct: (item) => {}
+    addProduct: (item) => {},
+    removeProduct:(id) => {}
 })
 
 export default ProductContext;

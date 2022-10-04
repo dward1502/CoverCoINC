@@ -10,9 +10,9 @@ const Modal = (props) => {
   const [addProductStatus, setAddProductStatus] = useState();
 
   const productCTX = useContext(ProductContext);
-  console.log(`This is global context ${JSON.stringify(productCTX)}`);
+  // console.log(`This is global context ${JSON.stringify(productCTX)}`);
 
-  console.log(`This is data in the modal component ${JSON.stringify(props.selectedItem)}`);
+  // console.log(`This is data in the modal component ${JSON.stringify(props.selectedItem)}`);
   
   const {id,title,features,images} = props.selectedItem
   const selectedProduct = {
@@ -29,9 +29,6 @@ const Modal = (props) => {
       props.onConfirm()
     },1600)
     return () => clearTimeout(timer)
-
-    // props.onConfirm()   
-
   }
 
   let notification;

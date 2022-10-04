@@ -1,0 +1,95 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+.modal {
+  position: fixed;
+  top: 10vh;
+  left: 30%;
+  width: 50%;
+  z-index: 100;
+  overflow: hidden;
+  background-color: $white;
+  padding: 4rem;
+  max-height: 100vh;
+  overflow-y: auto;
+  @include respond(tab-port) {
+      left: 20%;
+      width: 60%;
+  }
+  @include respond(phone) {
+      left: 10%;
+      width: 80%;
+  }
+  & h1 {
+      border-bottom: .5rem solid $black;
+  }
+
+}
+.exitBtn {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+.productList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 80rem;
+  overflow: auto;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.3rem solid $primary;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  font-family: $font-cairo;
+
+  & button {
+    font: inherit;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: $primary;
+    border: 1px solid $primary;
+    width: 8rem;
+    text-align: center;
+    border-radius: 6px;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 1rem;
+    margin: 0.25rem;
+  }
+  & button:hover,
+  button:active {
+    background-color: $primary;
+    color: white;
+  }
+}
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 1.6rem;
+}
+
+.btn {
+    font-size: 1.6rem;
+    margin-top: 3rem;
+    border: none;
+    background-color: $primary;
+    color: $white;
+    padding: 1rem 2.6rem;
+    box-shadow: .3rem .3rem .3rem $black;
+    cursor: pointer;
+}

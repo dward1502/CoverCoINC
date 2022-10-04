@@ -16,6 +16,7 @@ class MyDocument extends Document {
           <div id='notifications'></div>
           <div id='backdrop-root'></div>
           <div id='modal-root'></div>
+          <div id='modal-viewRequest'></div>
         </body>
       </Html>
     );
