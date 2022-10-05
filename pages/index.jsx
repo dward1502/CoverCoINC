@@ -35,7 +35,7 @@ const Index = () => {
         We will be showcasing our scuba and spandex covers
         </p>
         <p>We will also be showcasing our branding  applicatons including dye-sublimation table covers and our elegant yet durable embroidery.  </p>
-        <p>All in all, Coverco Inc. is your cover solution so please check back regularly to see our progress and let us help you make your very best.</p>
+        <p>All in all, Coverco Inc. is your cover solution so please check back regularly to see our progress and let us help you make your look the very best.</p>
         <p>Sincerely,</p>
         <p>Breck Johnson</p>
         <p>President</p>
