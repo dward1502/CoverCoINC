@@ -1,0 +1,87 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.img {
+  object-fit: cover;
+  width: 100% !important;
+  // position: absolute !important;
+  height: 40rem;
+  z-index: 5;
+}
+
+.imgContainer {
+  background: tan;
+  height: 100%;
+  width: 60%;
+  position: relative;
+}
+.textContainer {
+  background-color: $black;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3rem;
+  & h1 {
+    font-size: 2.4rem;
+    font-family: $font-mont;
+    font-weight: 700;
+    color: $white;
+    text-transform: uppercase;
+  }
+  & p {
+    font-size: 1.2rem;
+    font-family: $font-arvo;
+    color: $white;
+  }
+  & a {
+    font-family: $font-arvo;
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    margin-top: 3rem;
+    background-color: $primary-dark;
+    color: $white;
+    border: 0.1rem solid $primary-dark;
+    border-radius: 0.5rem;
+    box-shadow: 0.1rem 0.3rem 1.1rem 0.6rem rgba(0, 0, 0, 0.46);
+    cursor: pointer;
+    z-index: 20;
+    text-decoration: none;
+    &:hover {
+      translate: 1.1;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  & p {
+    font-size: 2rem;
+    font-family: $font-mont;
+    font-weight: 800;
+    color: $white;
+    text-transform: uppercase;
+  }
+  & button {
+    font-family: $font-arvo;
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    margin-top: 3rem;
+    background-color: $primary-dark;
+    color: $white;
+    border: 0.1rem solid $primary-dark;
+    border-radius: 0.5rem;
+    box-shadow: 0.1rem 0.3rem 1.1rem 0.6rem rgba(0, 0, 0, 0.46);
+    cursor: pointer;
+    z-index: 20;
+    &:hover {
+      translate: 1.1;
+    }
+  }
+}

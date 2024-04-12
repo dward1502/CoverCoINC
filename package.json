@@ -1,30 +1,25 @@
 {
-  "name": "my-app",
+  "name": "coverco",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ./ --ext js,jsx,ts,tsx"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@svgr/webpack": "^5.5.0",
-    "autoprefixer": "^10.3.1",
-    "axios": "^0.21.1",
-    "dotenv": "^10.0.0",
-    "eslint-config-next": "^11.1.0",
-    "keen-slider": "^5.5.1",
-    "next": "11.0.1",
-    "nodemailer": "^6.6.3",
-    "postcss": "^8.3.6",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-icons": "^4.2.0",
-    "sass": "^1.37.5"
+    "keen-slider": "^6.8.6",
+    "next": "14.1.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.0.1"
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-plugin-react": "^7.24.0"
+    "@types/node": "20.12.7",
+    "@types/react": "18.2.75",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.4",
+    "sass": "^1.74.1"
   }
 }

@@ -1,0 +1,180 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.searchBox {
+  width: 100%;
+  border-right: none;
+  border: 0.2rem solid red;
+  padding: 0.5rem;
+  height: 2rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+  outline: none;
+  color: #9dbfaf;
+  &:focus {
+    color: #00b4cc;
+  }
+}
+.searchButton {
+  width: 4rem;
+  height: 3.6rem;
+  border: 0.1rem solid red;
+  background: red;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 0.5rem 0.5rem 0;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.hero {
+  width: 100%;
+ height: 25rem; 
+ margin-top: 1rem;
+  position: relative;
+  z-index: 0;
+  text-align: center;
+  & h1 {
+    font-style: $font-arvo;
+    z-index: 10;
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: $white;
+    font-size: 4rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  }
+}
+.photo {
+  object-fit: cover;
+  width: 100% ;
+  position: relative ;
+  z-index: 0;
+}
+
+.inputRow {
+  display: flex;
+}
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  & label {
+    margin-bottom: 0.1rem;
+    font-family: $font-mont;
+    font-size: 1.1rem;
+    margin-left: 1rem;
+    font-weight: 600;
+  }
+  & input {
+    // padding: 0.3rem 0.2rem;
+    font-family: $font-cairo;
+    border: 0.2rem solid $primary-dark;
+    width: 18rem;
+    background: rgb(255, 255, 255);
+  }
+
+  & textarea {
+    resize: none;
+    font-family: $font-cairo;
+    border: 0.2rem solid $primary-dark;
+    background: rgb(255, 255, 255);
+    width: 38rem;
+    // @include respond(tab-land) {
+    //     width: 38rem;
+    // }
+    // @include respond(phone) {
+    //     width: 38rem;
+    // }
+  }
+}
+.form {
+  @include respond(tab-land) {
+    padding: 2rem;
+  }
+  @include respond(phone) {
+    padding: 2rem;
+  }
+}
+.btnContainer {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 1rem;
+}
+.btn {
+  font-family: $font-mont;
+  font-size: 1.5rem;
+  padding: 1rem 3rem;
+  border: none;
+  background-color: $primary-light;
+  color: $white;
+  font-weight: 600;
+  // box-shadow: -1px 2px 12px 4px rgba(0,0,0,0.67);
+  &:disabled {
+    background-color: rgba(27, 184, 223, 0.541);
+    border: 0.2rem solid $black;
+
+    // box-shadow: -1px 2px 12px 4px rgba(0,0,0,0.67);
+  }
+}
+
+.errorText {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  font-family: $font-mont;
+  color: red;
+}
+.invalid {
+  & label {
+    color: red;
+  }
+  & input {
+    background: salmon;
+  }
+}
+
+.notification {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  background-color: grey;
+  padding: 0 2rem;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  height: 8rem;
+  bottom: 24rem;
+  width: 100%;
+  left: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  z-index: 150;
+}
+
+.notification h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.notification p {
+  margin: 0;
+}
+
+.success {
+  background-color: green;
+  color: rgb(43, 43, 43);
+}
+
+.error {
+  background-color: rgb(190, 15, 15);
+}
+
+@media (min-width: 768px) {
+  .notification {
+    width: 50rem;
+    left: calc(50% - 20rem);
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+  }
+}
