@@ -1,3 +1,4 @@
+"use client"
 import { Fragment, useContext, useEffect, useState } from 'react';
 import ProductContext from '../../../context/product-context';
 import Notification from '../notification';
