@@ -2,31 +2,31 @@ export const MenuItems = [
   {
     id: '1',
     title: 'Sports',
-    path: '/sports',
+    path: '/contact',
     cName: 'dropdown_link',
   },
   {
     id: '2',
     title: 'Hotels Country Clubs',
-    path: '/hotels',
+    path: '/contact',
     cName: 'dropdown_link',
   },
   {
     id: '3',
     title: 'Amphitheatres Concert Venues',
-    path: '/concerts',
+    path: '/contact',
     cName: 'dropdown_link',
   },
   {
     id: '4',
     title: 'Convention Centers',
-    path: '/conventions',
+    path: '/contact',
     cName: 'dropdown_link',
   },
   {
     id: '5',
     title: 'Casinos',
-    path: '/casinos',
+    path: '/contact',
     cName: 'dropdown_link',
   },
 ];

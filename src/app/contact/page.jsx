@@ -5,7 +5,7 @@ import { FaEnvelope, FaPhone } from 'react-icons/fa';
 
 import styles from './contact.module.scss';
 import USAIMG from "../../assets/images/usa_stamp.jpg";
-import LOGO from "../../assets/images/coverCoLogoBlack.webp"
+import LOGO from "../../assets/images/coverCoLogo_white.png"
 
 const ContactPage = () => {
   return (

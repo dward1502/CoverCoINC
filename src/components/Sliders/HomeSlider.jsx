@@ -15,6 +15,7 @@ const HomeSlider = () => {
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
+      duration:1500,
     },
     [
       (slider) => {

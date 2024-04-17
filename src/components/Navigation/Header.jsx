@@ -13,7 +13,7 @@ const Header = () => {
         <div className={styles.logo}>
           <Image alt="CoverCoInc" src={LOGO} fill  className={styles.custom_img} priority />
         </div>
-        <Link href="#" className={`${styles.btn} ${styles.headerBtn}`}>
+        <Link href="/contact" className={`${styles.btn} ${styles.headerBtn}`}>
           Catalog Quote
         </Link>
         <div className={styles.contactInfo}>

@@ -14,54 +14,66 @@ const IndustriesPage = () => {
         <p>We can create any size and/or shape covering for any item your company or organization utilizes in your business events and activities. Cover Co Inc.’s main objective is to help make our clients look their best when dealing with their clientele.</p>
       </div>
       <section className={styles.section1}>
-        <div className={styles.imgContainer}>
-          <Image src="/images/slideshow1.webp" alt="Sports industry image" fill className={styles.img} />
-        </div>
         <div className={styles.infoContainer}>
           <h1>Sports</h1>
           {/* <div className={styles.icons}></div> */}
-          <Link href="catalog/sports" className={styles.btnLink}>
+          <Link href="/contact" className={styles.btnLink}>
             Catalog
           </Link>
+        </div>
+        <div className={styles.imgContainer}>
+          <Image src="/images/slideshow1.webp" alt="Sports industry image" fill className={styles.img} />
         </div>
       </section>
 
       <section className={styles.section2}>
+        <div className={styles.imgContainer}>
+          <Image src="/images/slideshow.jpg" alt="Hotels and Country Clubs image" fill className={styles.img} />
+        </div>
         <div className={styles.infoContainer}>
-          <h1>Universities</h1>
+          <h1>Hotels Country Clubs</h1>
           {/* <div className={styles.icons}></div> */}
-          <Link href="catalog/universities" className={styles.btnLink}>
+          <Link href="/contact" className={styles.btnLink}>
             Catalog
           </Link>
-        </div>
-        <div className={styles.imgContainer}>
-          <Image src="/images/slideshow2.webp" alt="Sports industry image" fill className={styles.img} />
         </div>
       </section>
 
       <section className={styles.section1}>
-        <div className={styles.imgContainer}>
-          <Image src="/slideshow3.jpg" alt="Sports industry image" fill className={styles.img} />
-        </div>
         <div className={styles.infoContainer}>
-          <h1>Restaurants</h1>
+          <h1>Amphitheatres Concert Venues</h1>
           {/* <div className={styles.icons}></div> */}
-          <Link href="catalog/restaurant" className={styles.btnLink}>
+          <Link href="/contact" className={styles.btnLink}>
             Catalog
           </Link>
+        </div>
+        <div className={styles.imgContainer}>
+          <Image src="/images/slideshow4.jpg" alt="Amphitheatres and Concert image " fill className={styles.img} />
         </div>
       </section>
 
       <section className={styles.section2}>
+        <div className={styles.imgContainer}>
+          <Image src="/images/slideshow5.jpg" alt="Convention Centers image" fill className={styles.img} />
+        </div>
+        <div className={styles.infoContainer}>
+          <h1>Convention Centers</h1>
+          {/* <div className={styles.icons}></div> */}
+          <Link href="/contact" className={styles.btnLink}>
+            Catalog
+          </Link>
+        </div>
+      </section>
+      <section className={styles.section1}>
         <div className={styles.infoContainer}>
           <h1>Casinos</h1>
           {/* <div className={styles.icons}></div> */}
-          <Link href="catalog/casino" className={styles.btnLink}>
+          <Link href="/contact" className={styles.btnLink}>
             Catalog
           </Link>
         </div>
         <div className={styles.imgContainer}>
-          <Image src="/images/slideshow1.webp" alt="Sports industry image" fill className={styles.img} />
+          <Image src="/images/slideshow2.webp" alt="Casinos image" fill className={styles.img} />
         </div>
       </section>
     </div>

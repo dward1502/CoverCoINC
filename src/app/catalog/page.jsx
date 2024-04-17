@@ -62,31 +62,31 @@ const CatalogPage = () => {
       <section className={styles.catalogs}>
         <div className={styles.box}>
           <h1>Sports</h1>
-          <Link href='/catalog/sports' className={styles.link}>
+          <Link href='/contact' className={styles.link}>
             Catalog
           </Link>
         </div>
         <div className={styles.box}>
           <h1>Conventions</h1>
-          <Link href='/catalog/conventions' className={styles.link}>
+          <Link href='/contact' className={styles.link}>
             Catalog
           </Link>
         </div>
         <div className={styles.box}>
           <h1>Universities</h1>
-          <Link href='/catalog/universities' className={styles.link}>
+          <Link href='/contact' className={styles.link}>
             Catalog
           </Link>
         </div>
         <div className={styles.box}>
           <h1>Casinos</h1>
-          <Link href='/catalog/casino' className={styles.link}>
+          <Link href='/contact' className={styles.link}>
             Catalog
           </Link>
         </div>
         <div className={styles.box}>
           <h1>Restaurants</h1>
-          <Link href='/catalog/restaurant' className={styles.link}>
+          <Link href='/contact' className={styles.link}>
             Catalog
           </Link>
         </div>

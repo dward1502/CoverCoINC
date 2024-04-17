@@ -90,6 +90,7 @@
   }
 }
 .form {
+  color:$white;
   @include respond(tab-land) {
     padding: 2rem;
   }

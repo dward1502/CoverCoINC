@@ -1,8 +1,7 @@
 "use client"
-import React, { Fragment, useState, useEffect } from 'react';
-// import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import useInput from '../../hooks/use-input';
-import Notification from './notification';
+// import Notification from './notification';
 
 import styles from './UI.module.scss';
 
@@ -10,12 +9,13 @@ const isNotEmpty = (value) => value.trim() !== '';
 const isEmail = (value) => value.includes('@');
 
 async function sendContactData(contactDetails) {
+  console.log("before fetch",contactDetails)
   const response = await fetch('/api/contact', {
     method: 'POST',
-    body: JSON.stringify(contactDetails),
     headers: {
       'Content-Type': 'application/json',
     },
+    body: JSON.stringify(contactDetails) 
   });
 
   const data = await response.json();
@@ -127,29 +127,29 @@ const ContactForm = () => {
     }
   }
 
-  let notification;
+  // let notification;
 
-  if (requestStatus === 'pending') {
-    notification = {
-      status: 'pending',
-      title: 'Sending message ...',
-      message: 'Your message is on its way!',
-    };
-  }
-  if (requestStatus === 'success') {
-    notification = {
-      status: 'success',
-      title: 'Success!',
-      message: 'Message sent successfully',
-    };
-  }
-  if (requestStatus === 'error') {
-    notification = {
-      status: 'error',
-      title: 'Error in sending message ...',
-      message: requestError,
-    };
-  }
+  // if (requestStatus === 'pending') {
+  //   notification = {
+  //     status: 'pending',
+  //     title: 'Sending message ...',
+  //     message: 'Your message is on its way!',
+  //   };
+  // }
+  // if (requestStatus === 'success') {
+  //   notification = {
+  //     status: 'success',
+  //     title: 'Success!',
+  //     message: 'Message sent successfully',
+  //   };
+  // }
+  // if (requestStatus === 'error') {
+  //   notification = {
+  //     status: 'error',
+  //     title: 'Error in sending message ...',
+  //     message: requestError,
+  //   };
+  // }
 
   const firstNameClasses = firstNameHasError
     ? `${styles.inputGroup} ${styles.invalid}`
@@ -267,13 +267,13 @@ const ContactForm = () => {
           </button>
         </div>
       </form>
-      {notification && (
+      {/* {notification && (
         <Notification
           status={notification.status}
           title={notification.title}
           message={notification.message}
         />
-      )}
+      )} */}
     </>
   );
 };
