@@ -23,7 +23,7 @@ const CatalogPage = () => {
         </p>
       </div>
       <div className={styles.btnContainer}>
-        <button>Contact Us</button>
+        <button><a href="/contact">Contact Us</a></button>
       </div>
       <section className={styles.photos}>
         <div className={styles.imgContainer}>

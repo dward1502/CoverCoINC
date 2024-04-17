@@ -20,6 +20,10 @@
   padding: 3rem;
   text-align: center;
   margin-bottom: 2rem;
+  & a {
+    text-decoration: none;
+    color: white;
+  }
   & button {
     font-size: 1.8rem;
     font-family: $font-mont;
