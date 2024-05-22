@@ -1,9 +1,10 @@
-import React from 'react'
+import SportsPage from "../../components/Pages/sportsPage";
+const Sports = () => {
+	return (
+		<>
+			<SportsPage />
+		</>
+	);
+};
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
-}
-
-export default page
+export default Sports;

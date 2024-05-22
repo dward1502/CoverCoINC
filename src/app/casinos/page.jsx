@@ -1,9 +1,11 @@
-import React from 'react'
+import CasinosPage from "../../components/Pages/conventionsPage";
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
-}
+const Conventions = () => {
+	return (
+		<>
+			<CasinosPage />
+		</>
+	);
+};
 
-export default page
+export default Conventions;

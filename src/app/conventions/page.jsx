@@ -1,9 +1,11 @@
-import React from 'react'
+import ConventionsPage from "../../components/Pages/conventionsPage";
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
-}
+const Conventions = () => {
+	return (
+		<>
+			<ConventionsPage />
+		</>
+	);
+};
 
-export default page
+export default Conventions;

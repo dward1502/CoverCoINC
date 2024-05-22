@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "@babel/preset-react": "^7.24.1",
     "@types/nodemailer": "^6.4.14",
     "keen-slider": "^6.8.6",
     "next": "14.1.4",
@@ -20,8 +23,12 @@
   "devDependencies": {
     "@types/node": "20.12.7",
     "@types/react": "18.2.75",
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "@babel/preset-react": "^7.24.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
-    "sass": "^1.74.1"
+    "sass": "^1.74.1",
+    "typescript": "5.4.5"
   }
 }

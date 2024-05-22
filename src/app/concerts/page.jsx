@@ -1,9 +1,11 @@
-import React from 'react'
+import ConcertsPage from "../../components/Pages/industriesPage";
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
-}
+const Industries = () => {
+	return (
+		<>
+			<ConcertsPage />
+		</>
+	);
+};
 
-export default page
+export default Industries;

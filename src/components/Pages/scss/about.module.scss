@@ -1,5 +1,5 @@
-@import '../../scss/variables';
-@import '../../scss/mixins';
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
 .hero {
   width: 100%;
   height:35rem;
@@ -115,6 +115,7 @@
   position: relative;
   margin-left: 4rem;
   overflow: hidden;
+  padding-bottom: 2rem;
   @include respond(phone-small) {
     margin: 3rem 0rem;
     height: 30rem;

@@ -1,9 +1,11 @@
-import React from 'react'
+import HotelsPage from "../../components/Pages/hotelsPage";
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
-}
+const Hotels = () => {
+	return (
+		<>
+			<HotelsPage />
+		</>
+	);
+};
 
-export default page
+export default Hotels;
