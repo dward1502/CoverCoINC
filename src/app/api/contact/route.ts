@@ -1,42 +1,69 @@
-import { type NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
-import Mail from "nodemailer/lib/mailer";
+import { NextResponse, type NextRequest } from "next/server";
+import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
 
-export async function POST(request: NextRequest) {
-  const reqData = await request.json()
-  console.log(reqData)
-  const transport = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: 'dward1502@gmail.com',
-      pass: 'ctaa stsc kcpt caqu',
-    },
-  });
+const ses = new SESv2Client({
+	region: process.env.AWS_SES_REGION ?? "us-east-1",
+});
 
-  const name = reqData.firstNameValue + reqData.lastNameValue;
+type Payload = {
+	firstNameValue: string;
+	lastNameValue: string;
+	emailValue: string;
+	phoneValue?: string;
+	companyValue?: string;
+	messageValue: string;
+};
 
-  const mailOptions: Mail.Options = {
-    to: "breck@covercoinc.com",
-    cc:"dward1502@gmail.com",
-    subject: `Request from ${name}`,
-    text: `Email: ${reqData.emailValue}\n Phone #: ${reqData.phoneValue}\n Company: ${reqData.companyValue}\n Message: ${reqData.messageValue}`,
-  };
+export async function POST(req: NextRequest) {
+	try {
+		const body = (await req.json()) as Partial<Payload>;
 
-  const sendMailPromise = () =>
-    new Promise<string>((resolve, reject) => {
-      transport.sendMail(mailOptions, function (err) {
-        if (!err) {
-          resolve("Email Sent");
-        } else {
-          reject(err.message);
-        }
-      });
-    });
+		const first = (body.firstNameValue ?? "").trim().slice(0, 60);
+		const last = (body.lastNameValue ?? "").trim().slice(0, 60);
+		const email = (body.emailValue ?? "").trim().slice(0, 120);
+		const phone = (body.phoneValue ?? "").trim().slice(0, 40);
+		const company = (body.companyValue ?? "").trim().slice(0, 120);
+		const message = (body.messageValue ?? "").trim().slice(0, 5000);
 
-  try {
-    await sendMailPromise();
-    return NextResponse.json({ message: "Email Sent" });
-  } catch (err) {
-    return NextResponse.json({ error: err }, { status: 500 });
-  }
+		if (!first || !last || !email || !message) {
+			return NextResponse.json({ error: "Missing required fields." }, { status: 400 });
+		}
+		if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+			return NextResponse.json({ error: "Invalid email." }, { status: 400 });
+		}
+
+		const name = `${first} ${last}`.trim();
+		const toList = ["breck@covercoinc.com", "dward1502@gmail.com"];
+
+		const text = [`Name: ${name}`, `Email: ${email}`, phone ? `Phone: ${phone}` : "", company ? `Company: ${company}` : "", "", "Message:", message]
+			.filter(Boolean)
+			.join("\n");
+
+		const subject = `Request from ${name}`;
+
+		// Use a verified sender in your SES domain
+		const fromEmail = process.env.EMAIL ?? "noreply@covercoinc.com";
+
+		const cmd = new SendEmailCommand({
+			FromEmailAddress: fromEmail,
+			Destination: { ToAddresses: toList },
+			ReplyToAddresses: [email], // so you can reply directly to the lead
+			Content: {
+				Simple: {
+					Subject: { Data: subject, Charset: "UTF-8" },
+					Body: {
+						Text: { Data: text, Charset: "UTF-8" },
+						// If you want HTML:
+						// Html: { Data: `<pre>${escapeHtml(text)}</pre>`, Charset: "UTF-8" },
+					},
+				},
+			},
+		});
+
+		await ses.send(cmd);
+		return NextResponse.json({ message: "Email sent" });
+	} catch (err: any) {
+		console.error("SES error:", err);
+		return NextResponse.json({ error: "Email failed" }, { status: 500 });
+	}
 }
