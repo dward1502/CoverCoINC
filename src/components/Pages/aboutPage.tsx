@@ -17,17 +17,17 @@ const AboutPage = () => {
 				<p>Our continuing mission is to excel and exceed your expectations : effortlessly... effectively... affordable!!!</p>
 			</section>
 			<section className={styles.info}>
-				<p>In the beginning of time: " If it doesn't look good ...", demanded Chef Hans, " wrap it with a linen!!!"</p>
+				<p>In the beginning of time: &quot; If it doesn&apos;t look good ...&quot;, demanded Chef Hans, &quot; wrap it with a linen!!!&quot;</p>
 				<p>
-					Thus, "wrapping with a linen" had been the internation industry standard until CoverCoInc's inventor/founder/co-owner Breck Johnson and core
-					staff began a twenty-year expedition to resolve that specific issue. Along the way, CoverCo Inc. has developed and redesigned what is now
-					the <strong>Giorgia Armani</strong> of custom covers. Our covers are built to fit specific products with specific patterns, instead of using
-					generic sizes, spandex or sloppily draped linens.
+					Thus, &quot;wrapping with a linen&quot; had been the internation industry standard until CoverCoInc&apos;s inventor/founder/co-owner Breck
+					Johnson and core staff began a twenty-year expedition to resolve that specific issue. Along the way, CoverCo Inc. has developed and
+					redesigned what is now the <strong>Giorgia Armani</strong> of custom covers. Our covers are built to fit specific products with specific
+					patterns, instead of using generic sizes, spandex or sloppily draped linens.
 				</p>
 				<p>
-					CoverCo Inc's main focus has been to efficiently design, build with quality fabrics, and brand primarily with embroidered logos. We have
-					sourced the finest fabrics for aesthetic covers for ballrooms, pool areas, lobbies, and concession areas, padded fabrics for storage, as
-					well as pads for use in fine dining establishments. We even have a disposable line!
+					CoverCo Inc&apos;s main focus has been to efficiently design, build with quality fabrics, and brand primarily with embroidered logos. We
+					have sourced the finest fabrics for aesthetic covers for ballrooms, pool areas, lobbies, and concession areas, padded fabrics for storage,
+					as well as pads for use in fine dining establishments. We even have a disposable line!
 				</p>
 				<div className={styles.usaImg}>
 					<Image src={USAIMG} alt="Made in the USA" width={100} height={100} />
