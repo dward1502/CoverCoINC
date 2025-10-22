@@ -1,37 +1,37 @@
 {
-  "name": "coverco",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@aws-sdk/client-sesv2": "^3.913.0",
-    "@babel/core": "^7.24.5",
-    "@babel/preset-env": "^7.24.5",
-    "@babel/preset-react": "^7.24.1",
-    "@types/nodemailer": "^6.4.14",
-    "keen-slider": "^6.8.6",
-    "next": "^14.2.33",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-hook-form": "^7.65.0",
-    "react-icons": "^5.0.1",
-    "react-toastify": "^11.0.5",
-    "sharp": "^0.34.4"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.24.5",
-    "@babel/preset-env": "^7.24.5",
-    "@babel/preset-react": "^7.24.1",
-    "@types/node": "20.12.7",
-    "@types/react": "18.2.75",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.4",
-    "sass": "^1.74.1",
-    "typescript": "5.4.5"
-  }
+	"name": "coverco",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@aws-sdk/client-sesv2": "^3.913.0",
+		"@babel/core": "^7.24.5",
+		"@babel/preset-env": "^7.24.5",
+		"@babel/preset-react": "^7.24.1",
+		"@types/nodemailer": "^6.4.14",
+		"keen-slider": "^6.8.6",
+		"next": "^14.2.33",
+		"react": "^18",
+		"react-dom": "^18",
+		"react-hook-form": "^7.65.0",
+		"react-icons": "^5.0.1",
+		"react-toastify": "^11.0.5",
+		"sharp": "^0.34.4"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.24.5",
+		"@babel/preset-env": "^7.24.5",
+		"@babel/preset-react": "^7.24.1",
+		"@types/node": "20.12.7",
+		"@types/react": "18.2.75",
+		"eslint": "^8",
+		"eslint-config-next": "14.1.4",
+		"sass": "^1.74.1",
+		"typescript": "5.4.5"
+	}
 }

@@ -1,0 +1,35 @@
+{
+  "name": "coverco",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@aws-sdk/client-sesv2": "^3.914.0",
+    "@babel/core": "^7.28.4",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-react": "^7.27.1",
+    "@types/nodemailer": "^7.0.2",
+    "keen-slider": "^6.8.6",
+    "next": "15.5.6",
+    "react": "^19",
+    "react-dom": "^19",
+    "react-icons": "^5.5.0",
+    "react-toastify": "^11.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.4",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-react": "^7.27.1",
+    "@types/node": "24.9.1",
+    "@types/react": "19.2.2",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.6",
+    "sass": "^1.93.2",
+    "typescript": "5.9.3"
+  }
+}
