@@ -1,8 +1,10 @@
+export const runtime = "nodejs";
+
 import { NextResponse, type NextRequest } from "next/server";
 import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
 
 const ses = new SESv2Client({
-	region: process.env.AWS_SES_REGION ?? "us-east-1",
+	region: process.env.SES_REGION,
 });
 
 type Payload = {
@@ -71,6 +73,14 @@ export async function POST(req: NextRequest) {
 			stack: err?.stack,
 		});
 
-		return NextResponse.json({ message: "Email failed to send." }, { status: 500 });
+		return NextResponse.json(
+			{
+				message: "SES send failed",
+				errorName: err?.name,
+				errorMessage: err?.message,
+				httpStatusCode: err?.$metadata?.httpStatusCode,
+			},
+			{ status: 500 }
+		);
 	}
 }
