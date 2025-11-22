@@ -18,6 +18,7 @@ type Payload = {
 export async function POST(req: NextRequest) {
 	try {
 		const body = (await req.json()) as Partial<Payload>;
+		console.log(body);
 
 		// Basic server-side validation/hardening
 		const first = (body.firstNameValue ?? "").trim().slice(0, 60);
