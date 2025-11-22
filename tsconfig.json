@@ -16,8 +16,8 @@
 			}
 		],
 		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"ignoreDeprecations": "6.0"
+		"ignoreDeprecations": "5.0",
+		"resolveJsonModule": true
 	},
 	"include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]

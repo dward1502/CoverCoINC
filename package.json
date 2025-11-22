@@ -30,7 +30,7 @@
 		"@types/node": "20.12.7",
 		"@types/react": "18.2.75",
 		"eslint": "^8.57.1",
-		"eslint-config-next": "^16.0.3",
+		"eslint-config-next": "^14.2.33",
 		"sass": "^1.74.1",
 		"typescript": "5.4.5"
 	}
