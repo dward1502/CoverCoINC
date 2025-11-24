@@ -2,13 +2,11 @@ export const runtime = "nodejs";
 
 import { NextResponse, type NextRequest } from "next/server";
 import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
-import { fromEnv } from "@aws-sdk/credential-providers"; // Or use fromNodeProviderChain for full chain
+import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 
 const ses = new SESv2Client({
 	region: process.env.SES_REGION,
-	// NEW: Explicitly use Lambda's env-injected creds from the execution role
-	credentials: fromEnv(), // This pulls AWS_CONTAINER_CREDENTIALS_RELATIVE_URI or similar in Lambda
-	// ALTERNATIVE (if above doesn't work): credentials: fromNodeProviderChain()  // Full chain: env -> role -> etc.
+	credentials: fromNodeProviderChain(),
 });
 
 type Payload = {
@@ -49,12 +47,12 @@ export async function POST(req: NextRequest) {
 
 		const subject = `Request from ${name}`;
 
-		const fromEmail = process.env.EMAIL ?? "noreply@covercoinc.com"; // must be SES-verified
+		const fromEmail = process.env.EMAIL ?? "noreply@covercoinc.com"; 
 
 		const cmd = new SendEmailCommand({
 			FromEmailAddress: fromEmail,
 			Destination: { ToAddresses: toList },
-			ReplyToAddresses: [email], // watch SES sandbox here
+			ReplyToAddresses: [email], 
 			Content: {
 				Simple: {
 					Subject: { Data: subject, Charset: "UTF-8" },
