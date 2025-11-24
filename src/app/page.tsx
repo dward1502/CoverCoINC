@@ -1,50 +1,41 @@
+import type { Metadata } from "next";
 import HomePage from "../components/Pages/homePage";
-import styles from "../scss/Home.module.scss"
-import { Metadata } from "next";
+import styles from "../scss/Home.module.scss";
 
-export const metadata: Metadata = {
-  title: "CoverCo Inc",
-  description:
-    "CoverCo Inc where we provide covers for your business object needs.",
-  keywords: [
-    "covers",
-    //TODO ADD MORE KEYWORDS
-  ],
-  openGraph: {
-    url: "https://covercoinc.com",
-    type: "website",
-    title: "CoverCo Inc",
-    description:
-      "CoverCo Inc where we provide covers for your business object needs.",
-    images: [
-      {
-        url: "https://covercoinc.com/images/coverCoLogo_white.png",
-        width: 1200,
-        height: 630,
-        alt: "covercoinc"
-      }
-    ]
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "CoverCo Inc",
-    description:
-      "CoverCo Inc where we provide covers for your business object needs.",
-    creator: "@covercoinc02",
-    site: "@covercoinc02",
-    images: [
-      {
-        url: "https://covercoinc.com/images/coverCoLogo_white.png",
-        width: 1200,
-        height: 630,
-        alt: "covercoinc"
-      }
-    ]
-  },
-  alternates: {
-    canonical: "https://covercoinc.com"
-  }
-};
+export async function generateMetadata(): Promise<Metadata> {
+	const title = "Custom Covers for Hospitality & Events";
+	const description =
+		"CoverCo Inc creates tailored covers that elevate hospitality, sports, and event spaces with durable, brandable fabrics.";
+	const sharedImage = {
+		url: "/images/coverCoLogo_white.png",
+		width: 1200,
+		height: 630,
+		alt: "CoverCo Inc custom cover solutions",
+	};
+
+	return {
+		title,
+		description,
+		keywords: ["CoverCo Inc", "custom covers", "hospitality covers", "event branding", "fabric covers"],
+		openGraph: {
+			title,
+			description,
+			url: "/",
+			images: [sharedImage],
+		},
+		twitter: {
+			card: "summary_large_image",
+			title,
+			description,
+			creator: "@covercoinc02",
+			site: "@covercoinc02",
+			images: [sharedImage],
+		},
+		alternates: {
+			canonical: "/",
+		},
+	};
+}
 
 export default function Home() {
 	return (

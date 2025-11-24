@@ -15,10 +15,36 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://covercoinc.com"),
+	title: {
+		default: "CoverCo Inc | Custom Covers for Hospitality & Events",
+		template: "%s | CoverCo Inc",
+	},
+	description:
+		"CoverCo Inc designs custom-fitted, brand-ready covers for hospitality venues, stadiums, convention centers, and event spaces using long-lasting fabrics.",
+	keywords: ["CoverCo Inc", "custom covers", "hospitality covers", "event branding", "fabric covers"],
 	openGraph: {
 		siteName: "Cover Co Inc",
 		type: "website",
 		locale: "en_US",
+		title: "CoverCo Inc | Custom Covers for Hospitality & Events",
+		description:
+			"CoverCo Inc designs custom-fitted, brand-ready covers for hospitality venues, stadiums, convention centers, and event spaces using long-lasting fabrics.",
+		url: "https://covercoinc.com",
+		images: [
+			{
+				url: "/images/coverCoLogo_white.png",
+				width: 1200,
+				height: 630,
+				alt: "CoverCo Inc logo",
+			},
+		],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "CoverCo Inc | Custom Covers for Hospitality & Events",
+		description:
+			"CoverCo Inc designs custom-fitted, brand-ready covers for hospitality venues, stadiums, convention centers, and event spaces using long-lasting fabrics.",
+		images: ["/images/coverCoLogo_white.png"],
 	},
 	robots: {
 		index: true,
@@ -45,34 +71,27 @@ export const metadata: Metadata = {
 	icons: {
 		icon: [
 			{
-				url: "/favicon.ico",
+				url: "/coverCoLogo_white.ico",
 				type: "image/x-icon",
 			},
 			{
-				url: "/favicon-16x16.png",
-				sizes: "16x16",
+				url: "/images/coverCoLogo_white.png",
+				sizes: "32x32",
 				type: "image/png",
 			},
-			// add favicon-32x32.png, favicon-96x96.png, android-chrome-192x192.png
 		],
 		shortcut: [
 			{
-				url: "/favicon.ico",
+				url: "/coverCoLogo_white.ico",
 				type: "image/x-icon",
 			},
 		],
 		apple: [
 			{
-				url: "/apple-icon-57x57.png",
-				sizes: "57x57",
+				url: "/images/coverCoLogo_white.png",
+				sizes: "180x180",
 				type: "image/png",
 			},
-			{
-				url: "/apple-icon-60x60.png",
-				sizes: "60x60",
-				type: "image/png",
-			},
-			// add apple-icon-72x72.png, apple-icon-76x76.png, apple-icon-114x114.png, apple-icon-120x120.png, apple-icon-144x144.png, apple-icon-152x152.png, apple-icon-180x180.png
 		],
 	},
 };

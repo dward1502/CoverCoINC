@@ -2,11 +2,11 @@ export const runtime = "nodejs";
 
 import { NextResponse, type NextRequest } from "next/server";
 import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
-import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
+import { defaultProvider } from "@aws-sdk/credential-provider-node";
 
 const ses = new SESv2Client({
 	region: process.env.SES_REGION,
-	credentials: fromNodeProviderChain(),
+	credentials: defaultProvider(),
 });
 
 type Payload = {
@@ -47,12 +47,12 @@ export async function POST(req: NextRequest) {
 
 		const subject = `Request from ${name}`;
 
-		const fromEmail = process.env.EMAIL ?? "noreply@covercoinc.com"; 
+		const fromEmail = process.env.EMAIL ?? "noreply@covercoinc.com";
 
 		const cmd = new SendEmailCommand({
 			FromEmailAddress: fromEmail,
 			Destination: { ToAddresses: toList },
-			ReplyToAddresses: [email], 
+			ReplyToAddresses: [email],
 			Content: {
 				Simple: {
 					Subject: { Data: subject, Charset: "UTF-8" },
