@@ -71,18 +71,18 @@ export const metadata: Metadata = {
 	icons: {
 		icon: [
 			{
-				url: "/coverCoLogo_white.ico",
+				url: "/favicon.ico",
 				type: "image/x-icon",
 			},
 			{
 				url: "/images/coverCoLogo_white.png",
-				sizes: "32x32",
+				sizes: "any",
 				type: "image/png",
 			},
 		],
 		shortcut: [
 			{
-				url: "/coverCoLogo_white.ico",
+				url: "/favicon.ico",
 				type: "image/x-icon",
 			},
 		],

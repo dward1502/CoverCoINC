@@ -1,13 +1,9 @@
 export const runtime = "nodejs";
 
 import { NextResponse, type NextRequest } from "next/server";
-import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
-import { defaultProvider } from "@aws-sdk/credential-provider-node";
+import { Resend } from "resend"; // NEW: Resend client
 
-const ses = new SESv2Client({
-	region: process.env.SES_REGION,
-	credentials: defaultProvider(),
-});
+const resend = new Resend(process.env.RESEND_API_KEY); // Uses your env var—no creds BS
 
 type Payload = {
 	firstName: string;
@@ -41,47 +37,36 @@ export async function POST(req: NextRequest) {
 		const name = `${first} ${last}`.trim();
 		const toList = ["breck@covercoinc.com", "dward1502@gmail.com"];
 
+		// Build plain text body (same as before)
 		const text = [`Name: ${name}`, `Email: ${email}`, phone ? `Phone: ${phone}` : "", company ? `Company: ${company}` : "", "", "Message:", message]
 			.filter(Boolean)
 			.join("\n");
 
 		const subject = `Request from ${name}`;
 
-		const fromEmail = process.env.EMAIL ?? "noreply@covercoinc.com";
-
-		const cmd = new SendEmailCommand({
-			FromEmailAddress: fromEmail,
-			Destination: { ToAddresses: toList },
-			ReplyToAddresses: [email],
-			Content: {
-				Simple: {
-					Subject: { Data: subject, Charset: "UTF-8" },
-					Body: {
-						Text: { Data: text, Charset: "UTF-8" },
-					},
-				},
-			},
+		// NEW: Send via Resend (simple API—no sandbox/verification needed for basics)
+		const result = await resend.emails.send({
+			from: process.env.EMAIL ?? "Contact Form <noreply@covercoinc.com>", // Your verified domain (add in Resend dashboard)
+			to: toList,
+			replyTo: email,
+			subject: subject,
+			text: text, // Or html: `<p>${text}</p>` for basic HTML
 		});
 
-		const result = await ses.send(cmd);
-		console.log("SES RESULT:", result);
+		console.log("RESEND RESULT:", result);
 
 		return NextResponse.json({ message: "Email sent successfully." });
 	} catch (err: any) {
-		console.error("SES error:", {
+		console.error("Resend error:", {
 			name: err?.name,
 			message: err?.message,
-			metadata: err?.$metadata,
-			stack: err?.stack,
-			creds: ses.config.credentials ? "Loaded" : "Failed to load",
 		});
 
 		return NextResponse.json(
 			{
-				message: "SES send failed",
+				message: "Email send failed",
 				errorName: err?.name,
 				errorMessage: err?.message,
-				httpStatusCode: err?.$metadata?.httpStatusCode,
 			},
 			{ status: 500 }
 		);
