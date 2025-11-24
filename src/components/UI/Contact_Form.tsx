@@ -49,7 +49,7 @@ const ContactForm: React.FC = () => {
 
 	const onSubmit: SubmitHandler<FormData> = async (data) => {
 		toast.info("Sending message...", { autoClose: false });
-
+		console.log(data);
 		try {
 			await sendContactData(data);
 			toast.dismiss();
