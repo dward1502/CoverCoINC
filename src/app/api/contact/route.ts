@@ -38,11 +38,11 @@ export async function POST(req: NextRequest) {
 		const toList = ["breck@covercoinc.com", "dward1502@gmail.com"];
 
 		// Build plain text body (same as before)
-		const text = [`Name: ${name}`, `Email: ${email}`, phone ? `Phone: ${phone}` : "", company ? `Company: ${company}` : "", "", "Message:", message]
+		const text = [`[SOURCE: Contact Page Form]`, ``, `Name: ${name}`, `Email: ${email}`, phone ? `Phone: ${phone}` : "", company ? `Company: ${company}` : "", "", "Message:", message]
 			.filter(Boolean)
 			.join("\n");
 
-		const subject = `Request from ${name}`;
+		const subject = `Contact Request from ${name}`;
 
 		// NEW: Send via Resend (simple API—no sandbox/verification needed for basics)
 		const result = await resend.emails.send({

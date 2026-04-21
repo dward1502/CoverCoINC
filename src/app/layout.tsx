@@ -1,11 +1,8 @@
 import type { Viewport, Metadata } from "next";
-import { Inter } from "next/font/google";
-import "../scss/globals.scss";
-import styles from "../scss/Home.module.scss";
-import Navigation from "../components/Navigation/Navigation";
-import Footer from "../components/Footer/Footer";
-import { ToastContainer } from "react-toastify";
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { Toaster } from "sonner";
 
 export const viewport: Viewport = {
 	width: "device-width",
@@ -60,58 +57,23 @@ export const metadata: Metadata = {
 		statusBarStyle: "default",
 		capable: true,
 	},
-	// verification: {
-	//   google: "YOUR_DATA",
-	//   yandex: ["YOUR_DATA"],
-	//   other: {
-	//     "msvalidate.01": ["YOUR_DATA"],
-	//     "facebook-domain-verification": ["YOUR_DATA"]
-	//   }
-	// },
 	icons: {
 		icon: [
-			{
-				url: "/favicon.ico",
-				type: "image/x-icon",
-			},
-			{
-				url: "/images/coverCoLogo_white.png",
-				sizes: "any",
-				type: "image/png",
-			},
+			{ url: "/favicon.ico", type: "image/x-icon" },
+			{ url: "/images/coverCoLogo_white.png", sizes: "any", type: "image/png" },
 		],
-		shortcut: [
-			{
-				url: "/favicon.ico",
-				type: "image/x-icon",
-			},
-		],
-		apple: [
-			{
-				url: "/images/coverCoLogo_white.png",
-				sizes: "180x180",
-				type: "image/png",
-			},
-		],
+		shortcut: [{ url: "/favicon.ico", type: "image/x-icon" }],
+		apple: [{ url: "/images/coverCoLogo_white.png", sizes: "180x180", type: "image/png" }],
 	},
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en">
-			<body className={inter.className}>
-				<ToastContainer
-					position="top-right"
-					autoClose={5000}
-					hideProgressBar={false}
-					newestOnTop={false}
-					closeOnClick={true}
-					rtl={false}
-					pauseOnFocusLoss
-					pauseOnHover
-				/>
-				<Navigation />
-				<main className={styles.content}>{children}</main>
+		<html lang="en" className="h-full">
+			<body className="min-h-full flex flex-col bg-background antialiased">
+				<Toaster position="top-right" richColors />
+				<Header />
+				<main className="flex-1">{children}</main>
 				<Footer />
 			</body>
 		</html>
