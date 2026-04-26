@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactFormSchema, type ContactFormData } from "@/lib/validation/contact";
-import { submitContactInquiry, type ContactActionResult } from "@/lib/actions/contact";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, AlertCircle } from "lucide-react";
 
@@ -12,8 +11,14 @@ interface ContactFormProps {
   sourcePage?: string;
 }
 
+interface FormResult {
+  success: boolean;
+  message: string;
+  errors?: Record<string, string[]>;
+}
+
 export default function ContactForm({ sourcePage }: ContactFormProps) {
-  const [result, setResult] = useState<ContactActionResult | null>(null);
+  const [result, setResult] = useState<FormResult | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
@@ -28,11 +33,28 @@ export default function ContactForm({ sourcePage }: ContactFormProps) {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     setResult(null);
-    const response = await submitContactInquiry(data, sourcePage);
-    setResult(response);
-    setIsSubmitting(false);
-    if (response.success) {
-      reset();
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, sourcePage }),
+      });
+      const json = (await res.json()) as { message: string; errors?: Record<string, string[]> };
+
+      if (res.ok) {
+        setResult({
+          success: true,
+          message:
+            "Thank you for reaching out. We have received your message and will respond within 1-2 business days.",
+        });
+        reset();
+      } else {
+        setResult({ success: false, message: json.message ?? "Something went wrong.", errors: json.errors });
+      }
+    } catch {
+      setResult({ success: false, message: "An unexpected error occurred. Please try again." });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 

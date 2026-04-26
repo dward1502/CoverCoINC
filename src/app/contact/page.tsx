@@ -44,10 +44,10 @@ export default function ContactPage() {
                     <div>
                       <span className="block text-sm font-medium text-[#2c2c2c]">Phone</span>
                       <a
-                        href="tel:+18585550147"
+                        href="tel:+8009598527"
                         className="text-[#6b6b6b] hover:text-[#8b6d4b] transition-colors"
                       >
-                        (858) 555-0147
+                        (800) 959-8527
                       </a>
                     </div>
                   </div>
@@ -75,7 +75,7 @@ export default function ContactPage() {
                       <span className="block text-sm font-medium text-[#2c2c2c]">Business Hours</span>
                       <p className="text-[#6b6b6b]">
                         Monday - Friday<br />
-                        8:00 AM - 5:00 PM PST
+                        9:00 AM - 4:00 PM PST
                       </p>
                     </div>
                   </div>
@@ -87,8 +87,8 @@ export default function ContactPage() {
                     <div>
                       <span className="block text-sm font-medium text-[#2c2c2c]">Address</span>
                       <p className="text-[#6b6b6b]">
-                        1280 Simpson Way<br />
-                        Escondido, CA 92029
+                        1150 Camino Del Mar Ste F<br />
+                        Del Mar, CA 92014
                       </p>
                     </div>
                   </div>

@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { quoteFormSchema, type QuoteFormData } from "@/lib/validation/quote";
-import { submitQuoteRequest, type QuoteActionResult } from "@/lib/actions/quote";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, AlertCircle } from "lucide-react";
 
@@ -43,8 +42,14 @@ interface QuoteFormProps {
   sourcePage?: string;
 }
 
+interface FormResult {
+  success: boolean;
+  message: string;
+  errors?: Record<string, string[]>;
+}
+
 export default function QuoteForm({ sourcePage }: QuoteFormProps) {
-  const [result, setResult] = useState<QuoteActionResult | null>(null);
+  const [result, setResult] = useState<FormResult | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
@@ -80,11 +85,28 @@ export default function QuoteForm({ sourcePage }: QuoteFormProps) {
   const onSubmit = async (data: QuoteFormData) => {
     setIsSubmitting(true);
     setResult(null);
-    const response = await submitQuoteRequest(data, sourcePage);
-    setResult(response);
-    setIsSubmitting(false);
-    if (response.success) {
-      reset();
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, sourcePage }),
+      });
+      const json = (await res.json()) as { message: string; errors?: Record<string, string[]> };
+
+      if (res.ok) {
+        setResult({
+          success: true,
+          message:
+            "Thank you for your quote request. Our team will review your requirements and contact you within 1-2 business days.",
+        });
+        reset();
+      } else {
+        setResult({ success: false, message: json.message ?? "Something went wrong.", errors: json.errors });
+      }
+    } catch {
+      setResult({ success: false, message: "An unexpected error occurred. Please try again." });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 

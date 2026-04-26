@@ -17,7 +17,7 @@ export default function Hero({
   tagline = "Since 1989",
   primaryCta = { text: "Request a Quote", href: "/quote/" },
   secondaryCta = { text: "Browse Products", href: "/products/" },
-  backgroundImage = "/images/hero.jpg",
+  backgroundImage = "/images/hero.png",
 }: HeroProps) {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
@@ -67,10 +67,10 @@ export default function Hero({
               className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm"
             >
               <Phone className="w-4 h-4" />
-              <span>(858) 555-0147</span>
+              <span>(800) 959-8527</span>
             </a>
             <span className="text-white/30">|</span>
-            <span className="text-white/60 text-sm">Escondido, CA</span>
+            <span className="text-white/60 text-sm">Del Mar, CA</span>
           </div>
         </div>
       </div>

@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+.roi-root {
+  --gold: #b8933a;
+  --gold-light: #d4af5a;
+  --gold-pale: #f5edd8;
+  --dark: #1a1a1a;
+  --charcoal: #2c2c2c;
+  --mid: #555;
+  --border: #e0d4b8;
+  --bg: #fafaf7;
+  --card: #ffffff;
+  --accent: #3a5a4a;
+
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.roi-hero {
+  background: var(--charcoal);
+  background-image: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #1a1a1a 100%);
+  padding: 64px 32px 48px;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+.roi-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    rgba(184, 147, 58, 0.03) 40px,
+    rgba(184, 147, 58, 0.03) 41px
+  );
+}
+.roi-hero-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.roi-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 20px;
+  line-height: 1.1;
+  position: relative;
+}
+.roi-hero p {
+  color: #aaa;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-size: 15px;
+  font-weight: 300;
+  position: relative;
+}
+
+.roi-body {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.roi-section-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.roi-section-label-spaced {
+  margin-bottom: 12px;
+}
+
+.roi-input-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 36px 40px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.04);
+}
+.roi-input-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 0 0 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.roi-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.roi-field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--charcoal);
+  letter-spacing: 0.3px;
+}
+.roi-field select {
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--dark);
+  background: var(--bg);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b8933a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+.roi-field select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 147, 58, 0.12);
+}
+
+.roi-slider-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.roi-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.roi-slider-header label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--charcoal);
+  letter-spacing: 0.3px;
+}
+.roi-slider-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold);
+  min-width: 60px;
+  text-align: right;
+  transition: color 0.15s;
+}
+.roi-slider-track {
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border);
+  margin: 4px 0 2px;
+}
+.roi-slider-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  pointer-events: none;
+  transition: width 0.05s;
+}
+.roi-slider-input {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  margin: 0;
+  padding: 0;
+  height: 20px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.roi-slider-thumb-overlay {
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 2px solid var(--gold);
+  box-shadow: 0 1px 6px rgba(184, 147, 58, 0.35);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: left 0.05s, box-shadow 0.15s;
+  z-index: 1;
+}
+.roi-slider-field:hover .roi-slider-thumb-overlay,
+.roi-slider-field:focus-within .roi-slider-thumb-overlay {
+  box-shadow: 0 0 0 5px rgba(184, 147, 58, 0.15), 0 1px 6px rgba(184, 147, 58, 0.35);
+}
+.roi-slider-range {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+.roi-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 32px;
+}
+@media (max-width: 560px) {
+  .roi-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .roi-input-card {
+    padding: 24px 20px;
+  }
+}
+
+.roi-summary {
+  background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 36px 40px;
+  margin-bottom: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  overflow: hidden;
+  position: relative;
+}
+.roi-summary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+}
+.roi-metric {
+  padding: 16px 24px;
+  text-align: center;
+  border-right: 1px solid rgba(184, 147, 58, 0.2);
+}
+.roi-metric:last-child {
+  border-right: none;
+}
+.roi-metric-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.roi-metric-value {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 700;
+  color: var(--gold-light);
+}
+@media (max-width: 560px) {
+  .roi-summary {
+    grid-template-columns: 1fr;
+    padding: 24px 20px;
+  }
+  .roi-metric {
+    border-right: none;
+    border-bottom: 1px solid rgba(184, 147, 58, 0.2);
+  }
+  .roi-metric:last-child {
+    border-bottom: none;
+  }
+}
+
+.roi-oes-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.04);
+}
+.roi-oes-header {
+  background: var(--dark);
+  padding: 20px 32px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.roi-oes-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #fff;
+  margin: 0;
+}
+.roi-oes-header span {
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.roi-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+.roi-table thead tr {
+  background: var(--gold-pale);
+}
+.roi-table thead th {
+  padding: 12px 20px;
+  text-align: right;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  border-bottom: 2px solid var(--border);
+}
+.roi-table thead th:first-child {
+  text-align: left;
+}
+.roi-table tbody td {
+  padding: 13px 20px;
+  text-align: right;
+  color: var(--mid);
+  border-bottom: 1px solid #f0ebe0;
+}
+.roi-table tbody td:first-child {
+  text-align: left;
+  color: var(--charcoal);
+  font-weight: 400;
+}
+.roi-table tbody tr:hover {
+  background: #fdfaf3;
+}
+.roi-table .savings-row td {
+  background: #f6f9f6;
+  color: var(--accent) !important;
+  font-weight: 600;
+}
+.roi-table .total-row td {
+  background: var(--charcoal);
+  color: var(--gold-light) !important;
+  font-weight: 600;
+  font-size: 14px;
+  border-bottom: none;
+}
+.roi-table .zero {
+  color: #aaa !important;
+}
+.roi-table .positive {
+  color: var(--accent) !important;
+  font-weight: 600;
+}
+
+.roi-footnote {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border-left: 3px solid var(--gold);
+  background: var(--gold-pale);
+  border-radius: 0 3px 3px 0;
+  font-size: 12px;
+  color: var(--mid);
+  line-height: 1.6;
+}

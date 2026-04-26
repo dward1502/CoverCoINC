@@ -127,7 +127,7 @@ export default function Footer() {
           </a>
           <div className="flex items-center gap-3 text-sm text-white/60">
             <MapPin className="w-4 h-4 text-[#8b6d4b] shrink-0" />
-            <span>1280 Simpson Way, Escondido, CA 92029</span>
+            <span>1150 Camino Del Mar Ste F Del Mar, CA 92014</span>
           </div>
         </div>
       </div>

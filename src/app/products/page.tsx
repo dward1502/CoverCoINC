@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getProductCategories, getProducts } from "@/lib/queries";
 import ProductCard from "@/components/cards/ProductCard";
 import CTASection from "@/components/sections/CTASection";
+import RoiCalculator from "@/components/sections/RoiCalculator";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -42,6 +43,8 @@ export default async function ProductsPage() {
           </div>
         </div>
       </section>
+
+      <RoiCalculator />
 
       {/* Product Families */}
       {products.length > 0 && (
@@ -99,7 +102,7 @@ export default async function ProductsPage() {
           </div>
         </section>
       )}
-
+  
       <CTASection
         title="Need Help Choosing?"
         subtitle="Our team can guide you to the right products for your venue and budget. Request a quote and we will recommend the best solutions."
