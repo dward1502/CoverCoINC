@@ -14,29 +14,27 @@
 	"dependencies": {
 		"@aws-sdk/client-sesv2": "^3.913.0",
 		"@aws-sdk/credential-providers": "^3.936.0",
-		"@babel/core": "^7.24.5",
-		"@babel/preset-env": "^7.24.5",
-		"@babel/preset-react": "^7.24.1",
-		"@types/nodemailer": "^6.4.14",
-		"keen-slider": "^6.8.6",
-		"next": "^14.2.33",
-		"react": "^18",
-		"react-dom": "^18",
-		"react-hook-form": "^7.65.0",
-		"react-icons": "^5.0.1",
-		"react-toastify": "^11.0.5",
+		"@hookform/resolvers": "^5.2.2",
+		"@supabase/ssr": "^0.10.2",
+		"@supabase/supabase-js": "^2.103.3",
+		"lucide-react": "^1.8.0",
+		"next": "^15.3.1",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-hook-form": "^7.72.1",
 		"resend": "^6.5.2",
-		"sharp": "^0.34.4"
+		"sharp": "^0.34.4",
+		"sonner": "^2.0.7",
+		"zod": "^4.3.6"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.24.5",
-		"@babel/preset-env": "^7.24.5",
-		"@babel/preset-react": "^7.24.1",
-		"@types/node": "20.12.7",
-		"@types/react": "18.2.75",
-		"eslint": "^8.57.1",
-		"eslint-config-next": "^14.2.33",
-		"sass": "^1.74.1",
-		"typescript": "5.4.5"
+		"@tailwindcss/postcss": "^4",
+		"@types/node": "^20",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"eslint": "^9",
+		"eslint-config-next": "^15.3.1",
+		"tailwindcss": "^4",
+		"typescript": "^5"
 	}
 }
